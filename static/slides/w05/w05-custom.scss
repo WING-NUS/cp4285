@@ -36,3 +36,49 @@
 .cp-flow-card--sequence .cp-flow-arrow {
   flex: 0 0 auto;
 }
+
+/* Keep Canvas Voices portraits aligned with the Week 02–04 recap treatment. */
+.w05-canvas-voices img[alt="Anonymous Canvas participant portrait"] {
+  position: absolute !important;
+  z-index: 2;
+  left: -0.70em !important;
+  bottom: -0.64em !important;
+  display: block;
+  box-sizing: border-box;
+  min-width: 1.05em !important;
+  min-height: 1.05em !important;
+  max-width: 1.05em !important;
+  max-height: 1.05em !important;
+  width: 1.05em !important;
+  height: 1.05em !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.w05-canvas-voices article p {
+  font-size: 0.60em !important;
+  line-height: 1.12 !important;
+}
+
+.w05-canvas-voices [role="group"] > div > article {
+  width: 86%;
+}
+
+.w05-canvas-voices [role="group"] > div > article:nth-child(odd) {
+  justify-self: start;
+  margin-left: 0.44em !important;
+}
+
+.w05-canvas-voices [role="group"] > div > article:nth-child(even) {
+  justify-self: end;
+  margin-left: 0 !important;
+  margin-right: 0.44em;
+  padding-left: 0.43em !important;
+  padding-right: 0.72em !important;
+  border-radius: 12px 12px 3px 12px !important;
+}
+
+.w05-canvas-voices [role="group"] > div > article:nth-child(even) img[alt="Anonymous Canvas participant portrait"] {
+  left: auto !important;
+  right: -0.70em !important;
+}

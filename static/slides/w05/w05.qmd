@@ -140,15 +140,38 @@ Instructor synthesis for Week 05: cluster the yes/no judgments around time gap, 
 
 ```{=html}
 <div class="cp-frame-bg cp-frame-navy"></div>
-<div class="cp-frame-content">
-  <div class="cp-frame-label" style="background:#003D7C;color:#EF7C00;">Last Week Pre-Lecture Exercise</div>
-  <div class="cp-frame-title cp-text--navy">Where Does One Session End?</div>
-  <div class="cp-frame-body" style="color:#333;font-size:.72em;line-height:1.2;">
+<div class="cp-frame-content w05-canvas-voices" style="padding-top:22px;">
+  <div class="cp-frame-label" style="background:#003D7C;color:#EF7C00;">Last Week Pre-Lecture Exercise · Canvas Voices</div>
+  <div class="cp-frame-body" style="color:#333;min-height:0;">
+    <div aria-label="Eight anonymised Canvas quotations, split between students who would retain the session and students who would begin a new one" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.35em;min-height:0;">
+      <div role="group" aria-label="No, retain the session" style="min-width:0;padding:.36em .55em .32em .82em;border-top:5px solid #5C2D91;background:#F7F3FB;">
+        <h3 style="margin:0 0 .35em;color:#5C2D91;font-size:.52em;line-height:1.05;">NO · Retain the session</h3>
+        <div style="display:grid;grid-template-rows:repeat(4,auto);gap:.43em;">
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #D6C8E8;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-01.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #5C2D91;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“I assume all three queries … are issued sequentially in one sitting, with no idle gap.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #D6C8E8;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-02.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #5C2D91;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“The word ‘then’ implies that the query is on the same itinerary.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #D6C8E8;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-03.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #5C2D91;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“I would keep the same session while placing more emphasis on the most recent request.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #D6C8E8;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-04.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #5C2D91;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“A good recommender should avoid recommending it twice for lunch and again for supper.”</p></article>
+        </div>
+      </div>
+      <div role="group" aria-label="Yes, begin a new session" style="min-width:0;padding:.36em .55em .32em .82em;border-top:5px solid #00796B;background:#F0F8F6;">
+        <h3 style="margin:0 0 .35em;color:#00796B;font-size:.52em;line-height:1.05;">YES · Begin a new session</h3>
+        <div style="display:grid;grid-template-rows:repeat(4,auto);gap:.43em;">
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #B9DDD4;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-05.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #00796B;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“Session data should only contain information … useful to the current context, whilst more general preferences … can be persisted across sessions.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #B9DDD4;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-06.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #00796B;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“Adding previous search context into an explicit ask is un-expected and might not be good UX.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #B9DDD4;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-07.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #00796B;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“Starting a new session does not mean discarding all earlier information.”</p></article>
+          <article style="position:relative;margin-left:.44em;padding:.30em .43em .30em .72em;border:2px solid #B9DDD4;border-radius:12px 12px 12px 3px;background:#fff;color:#273244;"><img src="assets/canvas-avatars/session-voice-08.png" alt="Anonymous Canvas participant portrait" style="position:absolute;left:-.78em;bottom:-.55em;width:1.28em;height:1.28em;border:2px solid #00796B;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff;"><p style="margin:0;font-size:.36em;font-style:italic;line-height:1.13;">“That is roughly eight hours of inactivity, well beyond a typical session timeout window of thirty to sixty minutes.”</p></article>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 ```
 
 ::: notes
+Delivery: 4 minutes. Read each column as an alternating conversation. The disagreement centres on the assumptions used to convert a trace into a boundary: continuity and retained context on the left; time gap, task shift, and user expectations on the right.
+
+[Sources]
+- Canvas discussion: Phua Qing Rong, Toh Yi Fan, V Varsha, and Zhang Ming Jun (retain the session); Shi Ziyuan, Lin Hong Yi, Tong Jing Yen, and Choi Minseok (begin a new session), Week 05 pre-lecture exercise, accessed 8 Sep 2026. Quotations are excerpted verbatim and portraits are shown without names.
 :::
 
 ## Which interaction history is available?
@@ -179,7 +202,7 @@ Delivery: 3 minutes. Use the figure to separate three questions that the literat
 ## Week 05: What changes when interactions have an order?
 
 <div class="cp-grid cp-grid--2">
-  <div class="cp-card cp-card--soft"><p class="cp-card__title">Week 04</p><p style="margin:0;">Attention selected useful features for a user-item score.</p></div>
+  <div class="cp-card cp-card--soft"><p class="cp-card__title">Week 04</p><p style="margin:0;">Attention selected useful features for a user–item score.</p></div>
   <div class="cp-card cp-card--soft"><p class="cp-card__title">Week 05</p><p style="margin:0;">A sequence model selects useful <strong>earlier actions</strong> to predict the next item.</p></div>
 </div>
 
