@@ -354,7 +354,7 @@ CP4285 Instruction Team
     </a>
   </figure>
   <div class="cp-stack" style="font-size:.72em;line-height:1.14;">
-    <div class="cp-card cp-card--soft" style="padding:.42em .55em;"><p class="cp-card__title">Session-based</p><p style="margin:0;">Use the ordered events in the current session when no durable history is available.</p></div>
+    <div class="cp-card cp-card--soft" style="padding:.42em .55em;"><p class="cp-card__title">Session-based</p><p style="margin:0;">Use the ordered events in the current session when no history is available.</p></div>
     <div class="cp-card cp-card--soft" style="padding:.42em .55em;"><p class="cp-card__title">Session-aware</p><p style="margin:0;">Combine the current session with earlier sessions from an identified user.</p></div>
     <div class="cp-card cp-card--soft" style="padding:.42em .55em;"><p class="cp-card__title">Sequence-aware</p><p style="margin:0;">Model a longer ordered history when earlier interactions may still matter.</p></div>
   </div>
@@ -405,7 +405,7 @@ By the end of today, you should be able to:
 <li>critically assess engagement-driven objectives.</li>
 </ul>
 <aside class="notes">
-<p>Delivery: 3 minutes. This is a bridge, not a second Transformer lecture. The recurring question is whether a system should use durable history, current-session evidence, or both.</p>
+<p>Delivery: 3 minutes. This is a bridge, not a second Transformer lecture. The recurring question is whether a system should use history, current-session evidence, or both.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -458,6 +458,19 @@ A short trace can reveal a task without revealing a permanent identity or prefer
 <p style="margin-top:.8em;">
 <strong>Session-based recommendation:</strong> predict a next item from the ordered interactions in the current, often anonymous, session.
 </p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>“Often anonymous” includes logged-in use:</strong> a system can keep the current session separate from the long-term profile, letting a temporary task guide the next recommendation without becoming permanent.</p>
+</div>
+</div>
+</div>
 <aside class="notes">
 <p>Delivery: 2.5 minutes. Tie this directly to the Ask Maps exercise. A session can be short, incomplete, and ambiguous; it is still often the strongest available signal for the immediate task.</p>
 <style type="text/css">
@@ -475,9 +488,9 @@ A short trace can reveal a task without revealing a permanent identity or prefer
 <section id="sessionisation-is-a-modelling-decision" class="slide level2">
 <h2>Sessionisation is a modelling decision</h2>
 <div class="cp-grid cp-grid--3">
-  <div class="cp-flow-card"><strong>1. Time gap</strong><br><span>Has enough inactivity elapsed to make a new task plausible?</span></div>
-  <div class="cp-flow-card"><strong>2. Task shift</strong><br><span>Did the intent move from museum planning to food delivery?</span></div>
-  <div class="cp-flow-card"><strong>3. Continuity</strong><br><span>Do location, timing, and actions still support one coherent task?</span></div>
+  <div class="cp-flow-card"><strong>1. Temporal context</strong><ul style="margin:.38em 0 0;padding-left:1.05em;font-size:.83em;line-height:1.24;"><li>Timestamp and inactivity gap</li><li>Visit duration and event pace</li></ul></div>
+  <div class="cp-flow-card"><strong>2. Content and task context</strong><ul style="margin:.38em 0 0;padding-left:1.05em;font-size:.83em;line-height:1.24;"><li>Query terms and item categories</li><li>Action types and stated constraints</li></ul></div>
+  <div class="cp-flow-card"><strong>3. Interaction and situational context</strong><ul style="margin:.38em 0 0;padding-left:1.05em;font-size:.83em;line-height:1.24;"><li>Navigation path and device or browser</li><li>Location and account continuity</li></ul></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -492,8 +505,42 @@ A short trace can reveal a task without revealing a permanent identity or prefer
 </div>
 </div>
 </div>
+<div class="to-think-about" title="To think about">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To think about</strong></p>
+</div>
+<div class="callout-content">
+<p>A device, location, or account signal may improve next-item accuracy. What user expectation or privacy cost should limit its use?</p>
+</div>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>Delivery: 3 minutes. Make the distinction explicit: a thirty-minute timeout is a policy choice. It should be evaluated against task coherence and product consequences.</p>
+<p>Delivery: 3 minutes. Name the three evidence classes before discussing a boundary rule: temporal context, content and task context, and interaction and situational context. A thirty-minute timeout is a policy choice. Evaluate it against task coherence and product consequences; none of these signals proves intent.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="deciding-what-starts-a-new-session" class="slide level2" data-background-color="#003D7C">
+<h2>👥 Deciding what starts a new session? 📶</h2>
+<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">Your group owns one session-boundary method. Apply it to the Ask Maps trace, then compare it with the shared 30-minute inactivity baseline.</p><div class="cp-card cp-card--warning" style="margin-top:.45em;padding:.42em .55em;"><p class="cp-card__title">Shared simplified implementation</p><p style="margin:0;"><strong>Fixed inactivity:</strong> begin a new session after 30 minutes with no event. It is clear and cheap, but one threshold cannot fit every task.</p></div><div class="cp-grid cp-grid--2" style="margin-top:.5em;gap:.55em;"><div class="cp-card cp-card--soft"><p class="cp-card__title">1. ♣ Adaptive timeout</p><p style="margin:0;">Change the gap using event pace, device, time of day, or product context.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">3. ♥ Task similarity</p><p style="margin:0;">Split when queries, items, or actions indicate a different task.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">4. ♦ Boundary classifier</p><p style="margin:0;">Learn a same-task or new-task decision from labelled traces.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">5. ♠ Intent change point</p><p style="margin:0;">Infer when the likely hidden intent state changes.</p></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-boundary-clinic-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-boundary-clinic-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-boundary-clinic-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-boundary-clinic-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-boundary-clinic-ring" data-text="w05-boundary-clinic-text" data-status="w05-boundary-clinic-status">▶ Start Timer</button></div></div></div>
+<aside class="notes">
+<p>Activity mode: small-group discussion. Total timebox: 10 minutes. Use the displayed timer for 3 minutes of group writing, then allow 2 minutes for one concise report from each suit, 2 minutes for AI Voice critique, 1 minute for student critique, and 2 minutes for instructor synthesis. Expected output: one boundary, the evidence it needs, and one failure case compared with a fixed 30-minute inactivity rule.</p>
+<p>The numbered options are: (1) adaptive timeout; (2) fixed inactivity, the shared baseline rather than a group assignment; (3) task similarity; (4) supervised boundary classifier; and (5) latent-intent change point. Treat each card suit as a contextual method label, never as a demographic category.</p>
+<p>After reports, ask AI Voice: “For each proposed session-boundary rule, what useful behaviour could it incorrectly split or incorrectly merge?” Treat the reply as an object of critique, not an answer. Instructor synthesis: fixed inactivity is a reproducible baseline; adaptive rules reflect interaction pace; task similarity recognises a change of purpose; classifiers combine signals but inherit labels and policy choices; latent-state models represent uncertainty but are harder to validate and explain.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -508,7 +555,7 @@ A short trace can reveal a task without revealing a permanent identity or prefer
 </section>
 <section id="from-an-event-log-to-next-item-examples" class="slide level2">
 <h2>From an event log to next-item examples</h2>
-<div class="cp-flow-card">view ramen <span class="cp-flow-arrow">→</span> open halal filter <span class="cp-flow-arrow">→</span> inspect delivery time <span class="cp-flow-arrow">→</span> <strong>predict: late-night restaurant</strong></div>
+<div class="cp-flow-card cp-flow-card--sequence"><span class="cp-flow-step">view ramen</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">open halal filter</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">inspect delivery time</span><span class="cp-flow-arrow" aria-hidden="true">→</span><strong class="cp-flow-step">predict: late-night restaurant</strong></div>
 <table class="cp-table cp-table--compact" style="margin-top:.75em;">
 <thead>
 <tr>
@@ -614,7 +661,7 @@ Which previous sessions have a similar prefix?
 </section>
 <section id="gru4rec-carry-a-changing-session-state" class="slide level2">
 <h2>GRU4Rec: carry a changing session state</h2>
-<div class="cp-flow-card"><strong>item 1</strong> <span class="cp-flow-arrow">→</span> GRU state <span class="cp-flow-arrow">→</span> <strong>item 2</strong> <span class="cp-flow-arrow">→</span> updated GRU state <span class="cp-flow-arrow">→</span> <strong>score next items</strong></div>
+<div class="cp-flow-card cp-flow-card--sequence"><strong class="cp-flow-step">item 1</strong><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">GRU state</span><span class="cp-flow-arrow" aria-hidden="true">→</span><strong class="cp-flow-step">item 2</strong><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">updated GRU state</span><span class="cp-flow-arrow" aria-hidden="true">→</span><strong class="cp-flow-step">score next items</strong></div>
 <div class="cp-grid cp-grid--2" style="margin-top:.8em;">
 <div class="cp-card cp-card--soft">
 <p class="cp-card__title">
@@ -712,24 +759,6 @@ Use future sessions and report Hit Rate, MRR, or NDCG at K.
 </div>
 <aside class="notes">
 <p>Delivery: 2.5 minutes. This is a blueprint, not live coding. Remind students that a held-out final event must not leak into the representation that predicts it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="card-suit-design-clinic-current-intent-accountable-treatment" class="slide level2" data-background-color="#003D7C">
-<h2>👥 Card-suit design clinic: current intent, accountable treatment</h2>
-<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">Your group receives one card-suit lens. For the late-night halal-food session, propose one recommendation policy, one safeguard, and one evidence gap.</p><div class="cp-grid cp-grid--2" style="margin-top:.5em;"><div class="cp-card cp-card--soft"><strong>♣ Clubs</strong><br>How might manipulated activity distort the session?</div><div class="cp-card cp-card--soft"><strong>♥ Hearts</strong><br>Can social context help without conformity or privacy harm?</div><div class="cp-card cp-card--soft"><strong>♦ Diamonds</strong><br>Can the list support discovery beyond the popular head?</div><div class="cp-card cp-card--soft"><strong>♠ Spades</strong><br>Which stated requirement must remain visible and stable?</div></div><p class="cp-activity__instructions" style="margin-top:.55em;">Write a two-sentence report before the timer ends. These are situational treatment lenses, not demographic labels.</p></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-session-lens-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-session-lens-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-session-lens-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-session-lens-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-session-lens-ring" data-text="w05-session-lens-text" data-status="w05-session-lens-status">▶ Start Timer</button></div></div></div>
-<aside class="notes">
-<p>Activity mode: small-group discussion. Total timebox: 10 minutes; use the displayed timer for the first 3 minutes of group writing, then reserve 2 minutes for reports, 2 minutes for AI Voice critique, 1 minute for student critique, and 2 minutes for instructor synthesis. Expected output: one policy, one safeguard, one evidence gap.</p>
-<p>After groups have written, ask AI Voice: “For this session-based recommendation policy, whose interests might be overlooked, and what unsafe assumption could it be making?” Treat the reply as an object of critique, not an answer. Instructor synthesis: session evidence can be useful without becoming a permanent identity claim.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -893,7 +922,7 @@ Which earlier actions still matter after preferences evolve?
 </section>
 <section id="preserve-chronology-in-the-learning-pipeline" class="slide level2">
 <h2>Preserve chronology in the learning pipeline</h2>
-<div class="cp-flow-card">earlier history <span class="cp-flow-arrow">→</span> train sequence model <span class="cp-flow-arrow">→</span> later held-out interaction <span class="cp-flow-arrow">→</span> rank candidates</div>
+<div class="cp-flow-card cp-flow-card--sequence"><span class="cp-flow-step">earlier history</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">train sequence model</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">later held-out interaction</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">rank candidates</span></div>
 <p style="margin-top:.8em;">
 A random split lets the model learn from actions that had not happened at recommendation time.
 </p>
@@ -998,7 +1027,7 @@ Let the current prediction selectively use different earlier actions.
 </section>
 <section id="sasrec-causal-self-attention-for-next-item-prediction" class="slide level2">
 <h2>SASRec: causal self-attention for next-item prediction</h2>
-<div class="cp-flow-card">item embeddings + position embeddings <span class="cp-flow-arrow">→</span> masked self-attention <span class="cp-flow-arrow">→</span> contextual sequence representation <span class="cp-flow-arrow">→</span> score next items</div>
+<div class="cp-flow-card cp-flow-card--sequence"><span class="cp-flow-step">item embeddings<br>+ position embeddings</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">masked self-attention</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">contextual sequence representation</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">score next items</span></div>
 <div class="cp-grid cp-grid--2" style="margin-top:.8em;">
 <div class="cp-card cp-card--soft">
 <p class="cp-card__title">
