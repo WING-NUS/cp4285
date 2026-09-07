@@ -136,6 +136,8 @@ Learning outcomes:
 
 {{< week-card week="Week 05" date="8–14 Sep 2026" focus="Sequential and Session-Based Recommendation" >}}
 
+**Question Bank collection:** Prepare your assigned contribution covering Weeks 01–05 and submit it on Canvas by **Mon, 21 Sep 2026, 23:59 SGT**.
+
 Topics:
 
 - User sequences
