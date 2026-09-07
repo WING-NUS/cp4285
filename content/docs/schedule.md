@@ -3,7 +3,7 @@ title: Schedule
 weight: 10
 changelog:
   - date: 8 Sep 2026
-    text: Made weekly schedule cards a click-anywhere accordion with animated opening, while preserving links and embedded materials.
+    text: Made weekly schedule cards a click-anywhere accordion with smooth opening and closing, while preserving links and embedded materials.
   - date: 5 Sep 2026
     text: Standardised week labels and date-time formatting across the schedule and Weeks 01–04 materials.
   - date: 1 Sep 2026
