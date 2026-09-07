@@ -82,6 +82,11 @@
   {{- end -}}
   <script src="{{ $hb_head.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $hb_head.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
 
+  {{ if and .File (eq .File.Path "docs/schedule.md") }}
+    {{ $week_card_toggle := resources.Get "js/week-card-toggle.js" | resources.Minify }}
+    <script defer src="{{ $week_card_toggle.RelPermalink }}"></script>
+  {{ end }}
+
   {{/* Analytics & Verification */}}
   {{/* !CACHED! All analytics and verification code is at site level */}}
   {{ partialCached "blox-analytics/index" . }}

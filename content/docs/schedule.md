@@ -2,6 +2,8 @@
 title: Schedule
 weight: 10
 changelog:
+  - date: 8 Sep 2026
+    text: Made each weekly schedule card open or close when its non-interactive surface is clicked.
   - date: 5 Sep 2026
     text: Standardised week labels and date-time formatting across the schedule and Weeks 01–04 materials.
   - date: 1 Sep 2026
