@@ -267,6 +267,7 @@ a {
 
 .weekly-detail-card {
   margin: 1.35rem 0;
+  scroll-margin-top: calc(var(--navbar-height, 4rem) + 1rem);
   border: 1px solid color-mix(in srgb, var(--hb-color-border, #d1d5db) 70%, transparent);
   border-left: 0.34rem solid #ef7c00;
   border-radius: 8px;
@@ -350,6 +351,7 @@ a {
 .weekly-detail-card__content {
   border-top: 1px solid color-mix(in srgb, var(--hb-color-border, #d1d5db) 70%, transparent);
   padding: 0.25rem 1.25rem 1.1rem;
+  transform-origin: top;
 }
 
 .weekly-detail-card__content > :first-child {
