@@ -88,9 +88,10 @@ Delivery: 1 minute. Keep this administrative notice to its essential policy: pee
     <li><strong>Two MCQ/MRQ questions</strong>, <strong>two fill-in-the-blank questions</strong>, or <strong>one calculation question</strong> with full working</li>
     <li>Include the answer for every question.</li>
   </ul>
-  <p style="margin:.2em 0 .58em;">Submit on Canvas by <strong><span class="cp-text--teal">Mon, 21 Sep 2026, 23:59 SGT</span></strong>. You have two weeks to prepare.</p>
+  <p style="margin:.2em 0 .18em;">Submit on Canvas by <strong><span class="cp-text--teal">Mon, 21 Sep 2026, 23:59 SGT</span></strong>. You have two weeks to prepare.</p>
+  <p style="margin:0 0 .58em;color:#003D7C;"><strong><span class="cp-text--teal">5 points</span> (1% of total marks) for completion only.</strong></p>
   <div class="cp-card cp-card--soft" style="padding:.55em .72em;">
-    <p class="cp-card__title" style="margin-bottom:.18em;">Week 07 (Open Book) Quiz <span class="cp-text--teal">· Tue, 28 Sep 2026</span></p>
+    <p class="cp-card__title" style="margin-bottom:.18em;">Week 07 (Open Book) Quiz <span class="cp-text--teal">· Tue, 29 Sep 2026</span></p>
     <p style="margin:0;"><strong><span class="cp-text--teal">~30 minutes</span></strong> at the beginning of class. A mix of instructor and peer questions, completed on paper and proctored.</p>
   </div>
 </div>
@@ -325,11 +326,23 @@ Delivery: 3 minutes. A session-based model uses only current-session events. A s
 # Break — 5 minutes {background-color="#000000"}
 
 ```{=html}
-<div class="cp-grid cp-grid--2-aside" style="min-height:62vh;align-items:center;color:#fff;"><div><div class="cp-kicker cp-text--orange" style="margin-bottom:.8em;">While you pause</div><h2 style="color:#fff;margin:.1em 0 .45em;">☕ BREAK</h2><p style="font-size:1.05em;line-height:1.42;margin:0;color:#d8d8d8;">A session is a useful operational window, not a complete story about a person.</p></div><div class="cp-activity__timer"><div class="cp-timer"><svg width="180" height="180" viewBox="0 0 180 180" aria-label="Five-minute break timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#333" stroke-width="14"></circle><circle id="w05-break-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-break-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="#00796B">05:00</text></svg><span id="w05-break-status" role="timer" aria-live="polite" class="cp-sr-only">05:00</span><button id="w05-break-btn" type="button" class="cp-timer__button" data-cp-timer data-seconds="300" data-ring="w05-break-ring" data-text="w05-break-text" data-status="w05-break-status">▶ Start Timer</button></div></div></div>
+<div class="cp-grid" style="grid-template-columns:minmax(0,1.72fr) minmax(260px,.72fr);gap:1.05em;min-height:62vh;align-items:center;color:#fff;">
+  <figure style="margin:0;">
+    <a href="https://medium.com/@anicomanesh/evolution-of-recommendation-algorithms-part-i-fundamentals-and-classical-recommendation-bb1c0bce78a9" target="_blank" rel="noopener" aria-label="Open the source article for the Amazon recommendation timeline">
+      <img src="assets/amazon-recommendation-timeline.png" alt="Timeline describing Amazon's growth and the role of recommendation systems" style="display:block;width:100%;max-height:480px;object-fit:contain;background:#fff;">
+    </a>
+    <figcaption style="margin-top:.32em;color:#c8d5df;font-size:.36em;line-height:1.2;">Nicoomanesh, A. (2024, March 25). <em>Evolution of recommendation algorithms, Part I: Fundamentals, history overview, core and classical algorithms.</em> Medium. <a href="https://medium.com/@anicomanesh/evolution-of-recommendation-algorithms-part-i-fundamentals-and-classical-recommendation-bb1c0bce78a9" target="_blank" rel="noopener" style="color:#6dd3c4;text-decoration:underline;">https://medium.com/@anicomanesh/evolution-of-recommendation-algorithms-part-i-fundamentals-and-classical-recommendation-bb1c0bce78a9</a></figcaption>
+  </figure>
+  <div style="text-align:center;">
+    <div class="cp-kicker cp-text--orange" style="margin-bottom:.58em;">While you pause</div>
+    <h2 style="color:#fff;margin:.1em 0 .52em;">☕ BREAK</h2>
+    <div class="cp-activity__timer"><div class="cp-timer"><svg width="180" height="180" viewBox="0 0 180 180" aria-label="Five-minute break timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#333" stroke-width="14"></circle><circle id="w05-break-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-break-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="#00796B">05:00</text></svg><span id="w05-break-status" role="timer" aria-live="polite" class="cp-sr-only">05:00</span><button id="w05-break-btn" type="button" class="cp-timer__button" data-cp-timer data-seconds="300" data-ring="w05-break-ring" data-text="w05-break-text" data-status="w05-break-status">▶ Start Timer</button></div></div>
+  </div>
+</div>
 ```
 
 ::: notes
-Delivery: start the shared five-minute timer. It pauses automatically if the slide is left.
+Delivery: start the shared five-minute timer. The Amazon timeline is optional viewing during the break; it comes from Anicomanesh’s Medium article, “Evolution of Recommendation Algorithms: Part I.”
 :::
 
 # 04 Sequential Recommendation {background-color="#EF7C00"}

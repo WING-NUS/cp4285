@@ -1,0 +1,125 @@
+---
+title: ""
+format:
+  revealjs:
+    theme: [default, ../cp4285-common.scss, ai-workflow-custom.scss]
+    slide-number: true
+    show-slide-number: all
+    width: 1600
+    height: 900
+    logo: "../../uploads/recommendation-social-media.png"
+    footer: "CP4285 · AI-assisted course workflow · NUS School of Computing"
+    self-contained: true
+    transition: slide
+    highlight-style: github
+    smaller: false
+    scrollable: false
+---
+
+# AI-assisted course workflow {background-color="#003D7C"}
+
+```{=html}
+<div class="ai-workflow-title">
+  <p class="ai-workflow-title__course">CP4285 · Modern Recommendation Systems</p>
+  <p class="ai-workflow-title__subtitle">AI drafts, compiles, and interrogates course materials. The instruction team reviews every teaching and assessment decision.</p>
+</div>
+```
+
+::: notes
+Delivery: 30 seconds. Frame the deck as a transparent account of course-production workflows. The recurring principle is simple: AI can accelerate preparation and support discussion, while the instruction team retains responsibility for what students see and how it is assessed.
+:::
+
+## Slide generation: a renderable teaching artifact
+
+```{=html}
+<div class="cp-stack ai-workflow-slide">
+  <p class="ai-workflow-lede"><strong>Goal:</strong> turn a teaching brief into an inspectable, versioned lecture deck without treating generated prose as course truth.</p>
+  <div class="cp-grid cp-grid--3 ai-workflow-stages">
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">1. Ground the brief</p><p>Read the topic, textbook, learning outcomes, prior slides, and course constraints. Record sources and activity requirements.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">2. Generate structured source</p><p>Draft <code>.qmd</code> with shared CP4285 primitives, speaker notes, links, alt text, and explicit claims.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">3. Compile and inspect</p><p>Run Quarto at 1600 × 900. Check every state for text fit, contrast, broken assets, source accuracy, and delivery timing.</p></div>
+  </div>
+  <div class="ai-workflow-checkpoint"><strong>Instructor gate:</strong> approve the learning sequence, factual claims, examples, and assessment implications before the rendered <code>.html</code> becomes lecture material.</div>
+  <p class="ai-workflow-footer">Traceability records the prompt, source files, Git diff, rendered deck, and visual review.</p>
+</div>
+```
+
+::: notes
+Delivery: 90 seconds. Explain that the editable Quarto source is the working artifact; the HTML is the compiled delivery artifact. AI can draft and refactor, but it cannot establish a factual claim or decide that a pedagogical sequence is adequate. Show the source-to-render loop if live delivery permits.
+:::
+
+## Website generation: source, build, deploy
+
+```{=html}
+<div class="cp-stack ai-workflow-slide">
+  <p class="ai-workflow-lede"><strong>Goal:</strong> publish supporting course information from version-controlled content while preserving the slides as the definitive course record.</p>
+  <div class="cp-grid cp-grid--3 ai-workflow-stages">
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">1. Edit the source layer</p><p>Update Markdown in <code>content/</code>, Hugo configuration, and reusable layouts. Keep dates, links, policy text, and navigation explicit.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">2. Build the static site</p><p>Hugo resolves templates and content into <code>public/</code>; Pagefind builds the search index from the generated pages.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">3. Test the published surface</p><p>Inspect local output for path correctness, responsive layout, accessible names, stale dates, and consistency with the lecture slides.</p></div>
+  </div>
+  <div class="ai-workflow-checkpoint"><strong>Instructor gate:</strong> confirm that public pages communicate the approved policy and link to the correct course materials. Generated output never replaces source review.</div>
+  <p class="ai-workflow-footer">Traceability records content, templates, the Hugo build, generated <code>public/</code>, and deployment review.</p>
+</div>
+```
+
+::: notes
+Delivery: 90 seconds. Distinguish source files from the generated public directory. The AI can propose edits and locate inconsistencies; the instructor owns policy wording, dates, and what becomes public. Mention that the course website supports the slides rather than superseding them.
+:::
+
+## Quiz generation: candidate questions under human control
+
+```{=html}
+<div class="cp-stack ai-workflow-slide">
+  <p class="ai-workflow-lede"><strong>Goal:</strong> use AI to help form a question bank, then validate every item as an assessment rather than a plausible-looking prompt.</p>
+  <div class="cp-grid cp-grid--3 ai-workflow-stages">
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">1. Specify the construct</p><p>Start from a learning outcome and a bounded lecture section. State the intended reasoning, format, difficulty, and evidence students may use.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">2. Produce candidates</p><p>Generate questions with answer keys, distractor rationales, calculations or worked solutions, and references to the relevant course material.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">3. Validate before release</p><p>Min checks correctness, ambiguity, accessibility, difficulty, duplication, and alignment. Peer suggestions remain candidates until curation.</p></div>
+  </div>
+  <div class="ai-workflow-checkpoint"><strong>Instructor gate:</strong> publish only reviewed items with a defensible answer and rubric. In-class quizzes remain AI-free, even though AI may support their preparation.</div>
+  <p class="ai-workflow-footer">Traceability links the CLO and course evidence to the candidate bank, instructor review, and controlled release.</p>
+</div>
+```
+
+::: notes
+Delivery: 90 seconds. Make the distinction between generation and assessment validity explicit. A fluent answer key does not prove that a question has one defensible answer. Explain that peer contributions and AI output both enter a curated question bank; Min makes the final inclusion decision. Remind students that in-class quizzes prohibit AI use.
+:::
+
+## Voice agents: Socratic discussion with a visible control loop
+
+```{=html}
+<div class="cp-stack ai-workflow-slide">
+  <p class="ai-workflow-lede"><strong>Goal:</strong> use a voice agent to surface reasoning during a discussion, then let students and the instructor evaluate the reasoning rather than defer to the voice.</p>
+  <div class="cp-grid cp-grid--3 ai-workflow-stages">
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">1. Scope the dialogue</p><p>Provide a bounded case, the relevant course concepts, a question sequence, and clear limits. Exclude personal data and grading decisions.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">2. Run the question loop</p><p>Speech recognition captures a student claim. The agent tracks the current turn, asks for evidence or a counterexample, then speaks the next question.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">3. Debrief the record</p><p>Use the transcript to identify unsupported assumptions, missing stakeholders, and competing explanations. Students challenge the agent’s reasoning.</p></div>
+  </div>
+  <div class="ai-workflow-checkpoint"><strong>Instructor gate:</strong> choose the case, stop or redirect an unhelpful exchange, and close with the course-grounded synthesis. A voice agent facilitates a discussion. It does not adjudicate it.</div>
+  <p class="ai-workflow-footer">Traceability records the scoped prompt, source material, transcript, student critique, and instructor synthesis.</p>
+</div>
+```
+
+::: notes
+Delivery: 90 seconds. Describe the technical loop in plain language: speech recognition converts a turn to text; conversation state retains the question and evidence already discussed; an LLM selects the next question from a bounded course context; speech synthesis returns it to the room. Ask students to listen for a premise that the agent assumes rather than establishes. Do not use a voice agent to grade, to infer personal attributes, or to make a final ruling in a dispute.
+:::
+
+## Canvas inputs: AI-assisted entry, instructor-approved publication
+
+```{=html}
+<div class="cp-stack ai-workflow-slide">
+  <p class="ai-workflow-lede"><strong>Goal:</strong> reduce mechanical entry work in Canvas while keeping course policy, audience, and publication decisions with the instruction team.</p>
+  <div class="cp-grid cp-grid--3 ai-workflow-stages">
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">1. Form an approved payload</p><p>Start from approved dates, learning outcomes, policy text, links, and audience. Represent each field explicitly: title, body, deadline, availability, and attachments.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">2. Populate a draft</p><p>AI can format announcements, discussion prompts, assignment instructions, or quiz metadata for the corresponding Canvas fields and flag missing information.</p></div>
+    <div class="cp-card cp-card--soft ai-workflow-stage"><p class="cp-card__title">3. Preview and reconcile</p><p>Check the rendered Canvas page, links, student view, recipients, points, dates, availability windows, and consistency with the slides and website.</p></div>
+  </div>
+  <div class="ai-workflow-checkpoint"><strong>Instructor gate:</strong> a staff member reviews the exact Canvas form and explicitly publishes it. AI may prepare inputs; it does not independently release student-facing changes.</div>
+  <p class="ai-workflow-footer">Traceability records the approved source, structured Canvas draft, staff preview, and explicit publication approval.</p>
+</div>
+```
+
+::: notes
+Delivery: 90 seconds. Explain that this workflow separates form filling from authority. The useful technical unit is a structured payload mapped to Canvas fields, not a free-form paragraph copied into a page. A human verifies the final student-facing page because a correct-looking draft can still have the wrong recipients, deadline, availability window, or attachment. Never expose student records or submit a live Canvas change without staff review.
+:::
