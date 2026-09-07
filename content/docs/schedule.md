@@ -136,7 +136,7 @@ Learning outcomes:
 
 {{< week-card week="Week 05" date="8–14 Sep 2026" focus="Sequential and Session-Based Recommendation" >}}
 
-**Question Bank collection:** Prepare your assigned contribution covering Weeks 01–05 and submit it on Canvas by **Mon, 21 Sep 2026, 23:59 SGT**.
+**Question Bank collection:** Prepare your assigned contribution covering Weeks 01–05.
 
 Topics:
 
@@ -159,7 +159,7 @@ Learning outcomes:
 {{< slides src="/cp4285-website/slides/w05/w05.html" title="Week 05 Slides" height="520px" >}}
 {{< /week-card >}}
 
-{{< week-card week="Week 06" date="15–21 Sep 2026" focus="Retrieval and Ranking Architectures" >}}
+{{< week-card week="Week 06" date="15–21 Sep 2026" focus="Retrieval and Ranking Architectures" due="Question Bank Collection — Mon, 21 Sep 2026 · 23:59 SGT" >}}
 
 Topics:
 
