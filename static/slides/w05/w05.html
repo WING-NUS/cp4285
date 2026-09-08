@@ -969,15 +969,15 @@ At position <em>t</em>, the model cannot inspect future actions.
 </div>
 <div class="cp-card cp-card--soft">
 <p class="cp-card__title">
-Position matters
+Selective, not simply recent
 </p>
 <p style="margin:0;">
-The same items in a different order can imply a different next item.
+An action at <em>t</em>−2 can outweigh <em>t</em>−1 and <em>t</em> when it better explains the next item.
 </p>
 </div>
 </div>
 <aside class="notes">
-<p>Delivery: 4.5 minutes. Work one trace on the chalkboard: museum → vegetarian café → “late-night halal” → delivery time. For shifted targets, the input through item <em>i</em><sub>t</sub> scores <em>i</em><sub>t+1</sub>. Ask which actions should receive attention for predicting the next item, and why the causal mask protects the training task.</p>
+<p>Delivery: 4.5 minutes. Work one trace on the chalkboard: “late-night halal food” at <em>t</em>−2 → museum ticket at <em>t</em>−1 → delivery-time check at <em>t</em>. For shifted targets, the input through item <em>i</em><sub>t</sub> scores <em>i</em><sub>t+1</sub>. Ask why the action at <em>t</em>−2 can receive the largest attention weight, and why the causal mask still blocks only future actions rather than older ones.</p>
 <p>[Source] - Kang and McAuley (2018), “Self-Attentive Sequential Recommendation.”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -991,31 +991,31 @@ The same items in a different order can imply a different next item.
           display:block!important;
       }</style></aside>
 </section>
-<section id="sasrec-walkthrough-one-next-item-recommendation-at-a-time" class="slide level2">
-<h2>SASRec walkthrough: one next-item recommendation at a time</h2>
+<section id="sasrec-walkthrough-an-older-action-can-matter-most" class="slide level2">
+<h2>SASRec walkthrough: an older action can matter most</h2>
 <div style="display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:1.05em;align-items:stretch;font-size:.66em;line-height:1.18;">
   <div style="padding:.6em .72em;border:1px solid #9EBFDB;background:#EAF4FB;">
     <p style="margin:0 0 .42em;color:#003D7C;font-weight:700;">Causal self-attention over the available session prefix</p>
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.48em;align-items:end;">
-      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>museum<br>ticket</strong><br><span class="cp-text--muted" style="font-size:.76em;">earlier</span></div>
-      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>vegetarian<br>café</strong><br><span class="cp-text--muted" style="font-size:.76em;">earlier</span></div>
-      <div class="cp-card cp-card--prompt" style="padding:.38em;text-align:center;"><strong>late-night<br>halal food</strong><br><span style="font-size:.76em;">current query</span></div>
+      <div class="cp-card cp-card--prompt" style="padding:.38em;text-align:center;"><strong>late-night<br>halal food</strong><br><span style="font-size:.76em;">state at <em>t</em>−2</span></div>
+      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>museum<br>ticket</strong><br><span class="cp-text--muted" style="font-size:.76em;">state at <em>t</em>−1</span></div>
+      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>delivery-time<br>check</strong><br><span class="cp-text--muted" style="font-size:.76em;">current state <em>t</em></span></div>
     </div>
-    <div class="fragment" data-fragment-index="1" style="margin-top:.58em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 1 · attention scores</strong><br><span class="cp-chip cp-chip--muted">0.08</span> <span class="cp-chip cp-chip--muted">0.22</span> <span class="cp-chip cp-chip--navy">0.70</span></div>
-    <div class="fragment" data-fragment-index="2" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 2 · causal softmax weights</strong><br><span class="cp-chip cp-chip--muted">8%</span> <span class="cp-chip cp-chip--muted">22%</span> <span class="cp-chip cp-chip--navy">70%</span></div>
-    <div class="fragment" data-fragment-index="3" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #EF7C00;background:#fff;text-align:center;"><strong class="cp-text--orange">Step 3 · contextual state</strong><br>The model gives the late-night halal action the largest weight, while retaining the earlier context.</div>
+    <div class="fragment" data-fragment-index="1" style="margin-top:.58em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 1 · attention scores</strong><br><span class="cp-chip cp-chip--navy">0.72</span> <span class="cp-chip cp-chip--muted">0.06</span> <span class="cp-chip cp-chip--muted">0.22</span></div>
+    <div class="fragment" data-fragment-index="2" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 2 · causal softmax weights</strong><br><span class="cp-chip cp-chip--navy">72%</span> <span class="cp-chip cp-chip--muted">6%</span> <span class="cp-chip cp-chip--muted">22%</span></div>
+    <div class="fragment" data-fragment-index="3" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #EF7C00;background:#fff;text-align:center;"><strong class="cp-text--orange">Step 3 · contextual state</strong><br>The state at <em>t</em>−2 has the largest weight: it identifies the restaurant-related intent behind the current delivery-time check.</div>
   </div>
   <div style="padding:.6em .72em;border:1px solid #B9D6B3;background:#EEF8EA;">
     <p style="margin:0 0 .42em;color:#003D7C;font-weight:700;">Ranked next-item recommendations</p>
-    <div class="cp-card cp-card--soft" style="padding:.42em;"><strong>Session prefix</strong><br><span class="cp-text--muted" style="font-size:.86em;line-height:1.16;">museum ticket<br>→ vegetarian café<br>→ late-night halal food</span></div>
-    <div class="fragment" data-fragment-index="4" style="margin-top:.48em;"><div class="cp-card cp-card--prompt" style="padding:.42em;"><strong>1. delivery-time check</strong><br><span class="cp-text--muted">highest-ranked next item</span></div></div>
-    <div class="fragment" data-fragment-index="5" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>2. halal restaurant details</strong><br><span class="cp-text--muted">re-rank after the new observed action</span></div></div>
-    <div class="fragment" data-fragment-index="6" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>3. order tracking</strong><br><span class="cp-text--muted">re-rank again with the longer prefix</span></div></div>
-    <div class="fragment" data-fragment-index="7" style="margin-top:.48em;color:#5F6B7A;text-align:center;"><strong>Only past actions are visible.</strong></div>
+    <div class="cp-card cp-card--soft" style="padding:.42em;"><strong>Session prefix</strong><br><span class="cp-text--muted" style="font-size:.86em;line-height:1.16;">late-night halal food (<em>t</em>−2)<br>→ museum ticket (<em>t</em>−1)<br>→ delivery-time check (<em>t</em>)</span></div>
+    <div class="fragment" data-fragment-index="4" style="margin-top:.48em;"><div class="cp-card cp-card--prompt" style="padding:.42em;"><strong>1. halal restaurant details</strong><br><span class="cp-text--muted">highest-ranked next item</span></div></div>
+    <div class="fragment" data-fragment-index="5" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>2. nearby halal delivery options</strong><br><span class="cp-text--muted">re-rank if the user opens the details</span></div></div>
+    <div class="fragment" data-fragment-index="6" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>3. order tracking</strong><br><span class="cp-text--muted">re-rank after a later observed action</span></div></div>
+    <div class="fragment" data-fragment-index="7" style="margin-top:.48em;color:#5F6B7A;text-align:center;"><strong>Only past actions are visible. Older actions may matter most.</strong></div>
   </div>
 </div>
 <aside class="notes">
-<p>Delivery: 4 minutes. Use this as a progressive build, following the user-provided CS4248 attention walkthrough pattern. Start with the three observed items. Reveal scores, then softmax weights, then the contextual state. Emphasize that the numbers are illustrative rather than learned values from a fitted model. Reveal each ranked next item as a new opportunity to re-run the causal sequence model on an extended prefix. Ask: “Which earlier action can this prediction inspect?” Answer: any earlier action in the displayed prefix, but never an action that occurs later.</p>
+<p>Delivery: 4 minutes. Use this as a progressive build, following the user-provided CS4248 attention walkthrough pattern. Start with the three observed items. Reveal scores, then softmax weights, then the contextual state. Emphasize that the numbers are illustrative rather than learned values from a fitted model. The key contrast is deliberate: the state at <em>t</em>−2 gets 72%, exceeding the current state’s 22%, because the late-night halal action better identifies the relevant restaurant context than the intervening museum ticket or a generic delivery-time check. Treat the right-column items as rankings, not observed outcomes; only an observed action extends the prefix. Ask: “What would causal masking forbid here?” Answer: an action at <em>t</em>+1, not the informative action at <em>t</em>−2.</p>
 <p>[Source] - Pedagogical build pattern adapted from the user-provided <em>CS4248 Lecture 08</em>, Slides 1–8. Recommendation example and all item labels are new for CP4285. - Kang and McAuley (2018), “Self-Attentive Sequential Recommendation.”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1035,7 +1035,7 @@ The same items in a different order can imply a different next item.
 <div class="cp-grid cp-grid--2" style="grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:center;margin-top:.62em;">
   <div class="cp-stack" style="font-size:.74em;line-height:1.22;">
     <div class="cp-card cp-card--warning"><p class="cp-card__title">A random split leaks the future</p><p style="margin:0;">It lets the model learn from actions that had not happened at recommendation time.</p></div>
-    <div class="cp-card cp-card--prompt"><p class="cp-card__title">Causal masking applies the same rule within a sequence</p><p style="margin:0;">Before softmax, set scores for future positions to <strong>−∞</strong>. Each prediction can use its prefix, never a later action.</p></div>
+    <div class="cp-card cp-card--prompt"><p class="cp-card__title">Causal masking applies the same rule within a sequence</p><p style="margin:0;">Before softmax, set future positions to <strong>−∞</strong>. An informative action at <em>t</em>−2 may still outweigh the current one.</p></div>
   </div>
   <figure style="margin:0;text-align:center;">
     <a href="https://jalammar.github.io/illustrated-gpt2/" target="_blank" rel="noopener" aria-label="Open Jay Alammar's explanation of the causal attention mask">
@@ -1045,7 +1045,7 @@ The same items in a different order can imply a different next item.
   </figure>
 </div>
 <aside class="notes">
-<p>Delivery: 3 minutes. The implementation contract remains the same: form ordered prefixes, reserve later events for testing, and ensure features such as popularity are computed only from training-time evidence. Connect the two safeguards precisely: a chronological split prevents future interactions from entering the training evidence; a causal mask prevents future positions from entering the representation for an earlier target. In the right-hand matrix, the upper-right triangle is set to negative infinity before softmax, so its weight becomes zero.</p>
+<p>Delivery: 3 minutes. The implementation contract remains the same: form ordered prefixes, reserve later events for testing, and ensure features such as popularity are computed only from training-time evidence. Connect the two safeguards precisely: a chronological split prevents future interactions from entering the training evidence; a causal mask prevents future positions from entering the representation for an earlier target. In the walkthrough, this permits the action at <em>t</em>−2 to receive the highest weight; it only excludes actions at <em>t</em>+1 and later. In the right-hand matrix, the upper-right triangle is set to negative infinity before softmax, so its weight becomes zero.</p>
 <p>[Source] - Alammar, J. (2019). “The Illustrated GPT-2.” Causal attention-mask diagram. https://jalammar.github.io/illustrated-gpt2/. Used with on-slide attribution; downloaded locally for reliable delivery.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1078,30 +1078,45 @@ Natural use
 <tbody>
 <tr>
 <td class="cp-table__cell cp-table__cell--label">
-SASRec
+<a href="https://arxiv.org/abs/1808.09781">SASRec</a><br><span class="cp-text--muted">Kang &amp; McAuley, 2018</span>
 </td>
 <td class="cp-table__cell">
 Causal: past only
 </td>
 <td class="cp-table__cell cp-table__cell--highlight">
-Next-item prediction
+Next-item ranking
 </td>
 </tr>
 <tr>
 <td class="cp-table__cell cp-table__cell--label">
-BERT4Rec-style
+<a href="https://doi.org/10.1145/3336191.3371786">TiSASRec</a><br><span class="cp-text--muted">Li, Wang &amp; McAuley, 2020</span>
+</td>
+<td class="cp-table__cell">
+Causal: past only + time intervals
+</td>
+<td class="cp-table__cell cp-table__cell--highlight">
+Time-sensitive next-item ranking
+</td>
+</tr>
+<tr>
+<td class="cp-table__cell cp-table__cell--label">
+<a href="https://arxiv.org/abs/1904.06690">BERT4Rec</a><br><span class="cp-text--muted">Sun et al., 2019</span>
 </td>
 <td class="cp-table__cell">
 Masked positions with bidirectional context
 </td>
 <td class="cp-table__cell cp-table__cell--highlight">
-Masked-item training; adapted to next-item ranking at inference
+Cloze-style sequential recommendation
 </td>
 </tr>
 </tbody>
 </table>
+<p class="cp-callout cp-callout--note cp-text--small">
+<strong>Also worth naming:</strong> <a href="https://arxiv.org/abs/2008.07873">S<sup>3</sup>-Rec</a> (Zhou et al., 2020) adds self-supervised pretraining objectives—another design axis, not another attention mask.
+</p>
 <aside class="notes">
-<p>Delivery: 3 minutes. Avoid a family taxonomy. SASRec uses unidirectional/causal self-attention; BERT4Rec uses bidirectional context around masked positions. The point is that masking expresses a learning task; an architecture name does not choose the task or objective for us.</p>
+<p>Delivery: 3 minutes. Avoid a family taxonomy. SASRec uses unidirectional/causal self-attention; TiSASRec retains that causal next-item framing but adds time-interval signals; BERT4Rec uses bidirectional context around masked positions. S<sup>3</sup>-Rec is included as a pretraining example, rather than as a different mask. The point is that masking expresses a learning task; an architecture name does not choose the task or objective for us.</p>
+<p>Paper sources: Kang &amp; McAuley (2018), “Self-Attentive Sequential Recommendation,” https://arxiv.org/abs/1808.09781; Li, Wang &amp; McAuley (2020), “Time Interval Aware Self-Attention for Sequential Recommendation,” https://doi.org/10.1145/3336191.3371786; Sun et al.&nbsp;(2019), “BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer,” https://arxiv.org/abs/1904.06690; Zhou et al.&nbsp;(2020), “S³-Rec: Self-Supervised Learning for Sequential Recommendation with Mutual Information Maximization,” https://arxiv.org/abs/2008.07873.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1121,14 +1136,14 @@ Masked-item training; adapted to next-item ranking at inference
 Trace
 </p>
 <p style="margin:0;">
-vegetarian café → museum ticket → “late-night halal food” → delivery-time check → <strong>?</strong>
+<em>t</em>−2: “late-night halal food” → <em>t</em>−1: museum ticket → <em>t</em>: delivery-time check → <strong>?</strong>
 </p>
 </div>
 <p style="margin-top:.7em;">
-Name one action likely to be highly relevant, one action that may be weakly relevant, and one uncertainty that a log alone cannot resolve.
+Why might the action at <em>t</em>−2 matter more than <em>t</em>−1? Name one uncertainty that the log alone cannot resolve.
 </p>
 <aside class="notes">
-<p>Delivery: 2 minutes. Take two rapid answers before the group activity. Keep the difference between “attention weight” and “truth about a person” explicit.</p>
+<p>Delivery: 2 minutes. Take two rapid answers before the group activity. A plausible answer is that the “late-night halal food” action at <em>t</em>−2 identifies a restaurant-related intent, while the museum ticket is weakly relevant. Keep the difference between an attention weight and truth about a person explicit: this trace does not establish a durable dietary, religious, or cultural identity.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1143,9 +1158,45 @@ Name one action likely to be highly relevant, one action that may be weakly rele
 </section>
 <section id="long-term-profile-or-sharp-current-intent" class="slide level2" data-background-color="#003D7C">
 <h2>👥 Long-term profile or sharp current intent?</h2>
-<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">For the worked trace, decide what should influence the next recommendation, what must not overwrite the profile, and one non-click outcome that would show helpfulness.</p><p class="cp-activity__instructions">Write a two-sentence answer. Be ready to name one temporal signal, one uncertainty, and one risk of optimizing only engagement.</p></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-seq-intent-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-seq-intent-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-seq-intent-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-seq-intent-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-seq-intent-ring" data-text="w05-seq-intent-text" data-status="w05-seq-intent-status">▶ Start Timer</button></div></div></div>
+<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">For the worked trace, build one defensible deployment claim. Each suit owns one lens.</p><div class="cp-grid cp-grid--2" style="gap:.48em;font-size:.76em;line-height:1.18;"><div class="cp-card cp-card--soft"><p class="cp-card__title">♠ Spades: ranking objective</p><p style="margin:0;">Name the objective and the prediction it improves.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">♥ Hearts: user benefit</p><p style="margin:0;">Name one non-click outcome that shows help.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">♦ Diamonds: product outcome</p><p style="margin:0;">Name a legitimate result beyond immediate CTR.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">♣ Clubs: guardrail</p><p style="margin:0;">Name a risk and the constraint that limits it.</p></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-seq-intent-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-seq-intent-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-seq-intent-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-seq-intent-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-seq-intent-ring" data-text="w05-seq-intent-text" data-status="w05-seq-intent-status">▶ Start Timer</button></div></div></div>
 <aside class="notes">
-<p>Activity mode: small-group discussion. Total timebox: 10 minutes; use the displayed timer for 3 minutes of group writing, then 2 minutes for reports, 3 minutes to map claims onto durable preference, short-term intent, and uncertainty, and 2 minutes for synthesis. Expected output: one temporal signal, one non-overwrite rule, and one non-click helpfulness measure. Instructor synthesis: compare a static aggregate with this dynamic sequence representation; a dynamic representation is not permission to turn every recent action into a durable profile.</p>
+<p>Activity mode: small-group discussion. Total timebox: 10 minutes. Use the displayed timer for 3 minutes of group writing. Assign each card suit one lens: Spades owns the ranking objective, Hearts names user benefit, Diamonds names the product outcome, and Clubs states the risk and guardrail. Then allow 2 minutes for reports, 3 minutes to assemble the deployment claim, and 2 minutes for synthesis. Expected output: “Optimise [objective] for [context], monitor [helpfulness outcome], and enforce [guardrail].” Instructor synthesis: a dynamic representation supports a current-task prediction, but it does not justify treating every recent action as a durable preference or optimising clicks without an account of help and harm.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="spades-ranking-objective" class="slide level2" data-background-color="#ffffff">
+<h2>♠ Spades: ranking objective</h2>
+<div class="cp-kicker">📶 Voice agent walkthrough</div>
+<div class="cp-grid cp-grid--2" style="margin-top:.5em;align-items:stretch;gap:1em;"><div class="cp-card cp-card--soft"><p class="cp-card__title">Spades asks</p><p style="margin:0;font-size:1.05em;line-height:1.28;">Which plausible next item should the system rank highest for this current session?</p><p style="margin:.7em 0 0;"><strong>Objective:</strong> rank the held-out next action above the other candidate items.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">What the objective establishes</p><p style="margin:0;">It tests session-level next-item relevance using the information available before that action.</p><p style="margin:.7em 0 0;"><strong>What it leaves open:</strong> whether the click helped the person complete the task or reflected a durable preference.</p></div></div>
+<div class="cp-card cp-card--prompt" style="margin-top:.8em;"><p class="cp-card__title">Voice agent</p><p style="margin:0;">Explain why next-item ranking is useful for the present session, then state why it cannot by itself define a successful recommendation.</p></div>
+<aside class="notes">
+<p>Voice agent leads this slide. Ask it to explain the Spades lens in 45–60 seconds: next-item ranking measures whether the model ranks the observed next action above alternatives from the target-time prefix. Then ask it to name the missing evidence: task completion, user satisfaction, and whether a brief trace should become a durable profile. Instructor follows with one check question: “What additional outcome would Hearts need to monitor?”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 center" data-background-color="#EF7C00">
+<h1>05 Summary</h1>
+<aside class="notes">
+<p>Delivery: 30 seconds. Signal that this is a distinct five-minute close: consolidate the representation, evaluation, and objective choices before previewing Week 06.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1211,54 +1262,21 @@ SASRec-style sequential Transformer
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="summary" class="title-slide slide level1 center" data-background-color="#003D7C">
-<h1>05 Summary</h1>
-<aside class="notes">
-<p>Delivery: 30 seconds. Signal that this is a distinct five-minute close: consolidate the representation, evaluation, and objective choices before previewing Week 06.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="time-changes-what-a-preference-signal-means." class="slide level2">
-<h2>🔑 <u>Time changes what a preference signal means.</u></h2>
-<div class="cp-grid cp-grid--3">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Session
-</p>
-<p style="margin:0;">
-Local intent can be useful without defining a person.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Sequence
-</p>
-<p style="margin:0;">
-Order and recency can change which history matters.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Objective
-</p>
-<p style="margin:0;">
-A next click is not the whole definition of help.
-</p>
-</div>
+<section id="time-changes-what-a-preference-signal-means" class="slide level2" data-background-color="#003D7C">
+<h2>🔑 Key Point: Time changes what a preference signal means</h2>
+<div style="min-height:62vh;display:flex;flex-direction:column;justify-content:center;color:#fff;">
+  <p style="margin:0 0 .8em;font-size:1.15em;line-height:1.22;"><u>Use a short, ordered session trace for the immediate task without treating it as a durable identity.</u></p>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.72em;">
+    <div style="padding:.62em .68em;border-top:6px solid #EF7C00;background:rgba(255,255,255,.08);"><p style="margin:0 0 .28em;color:#EF7C00;font-weight:bold;">Session</p><p style="margin:0;color:#fff;">A local trace can guide the next action without defining the person.</p></div>
+    <div style="padding:.62em .68em;border-top:6px solid #80cbc4;background:rgba(255,255,255,.08);"><p style="margin:0 0 .28em;color:#80cbc4;font-weight:bold;">Sequence</p><p style="margin:0;color:#fff;">Order and recency can change which earlier action matters.</p></div>
+    <div style="padding:.62em .68em;border-top:6px solid #EF7C00;background:rgba(255,255,255,.08);"><p style="margin:0 0 .28em;color:#EF7C00;font-weight:bold;">Objective</p><p style="margin:0;color:#fff;">A next click does not by itself show that the recommendation helped.</p></div>
+    <div style="padding:.62em .68em;border-top:6px solid #80cbc4;background:rgba(255,255,255,.08);"><p style="margin:0 0 .28em;color:#80cbc4;font-weight:bold;">Privacy</p><p style="margin:0;color:#fff;">A short-lived session ID is pseudonymous, not automatically anonymous. Minimise identifiers, separate it from profiles, and limit retention.</p></div>
+  </div>
+  <p style="margin:1em 0 0;color:#EF7C00;font-size:1.02em;font-weight:bold;">🤞 Predict a next action with humility and retain only the session data the task needs.</p>
 </div>
 <aside class="notes">
-<p>Delivery: 3 minutes. Revisit the four stated outcomes and ask students to distinguish the model representation from the product claim.</p>
+<p>Delivery: 3 minutes. Revisit the four stated outcomes and ask students to distinguish the model representation from the product claim. Make the privacy point precise: a short-lived session token may be pseudonymous, but it is not anonymous merely because it lacks a visible name. Re-identification remains possible when the trace is linked with an account, device, location, or other records. The operational guardrails are data minimisation, separation from durable profiles where possible, and a clear retention limit.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
