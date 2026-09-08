@@ -185,7 +185,7 @@ Learning outcomes:
 
 <aside class="course-schedule-notice course-schedule-notice--break"><strong>Recess Week</strong><span>Tue, 22 Sep 2026 · No class</span></aside>
 
-{{< week-card week="Week 07" date="29 Sep–5 Oct 2026" focus="Project Design Critique Workshop" due="Project design critique" >}}
+{{< week-card week="Week 07" date="29 Sep–5 Oct 2026" focus="Project Design Critique Workshop" due="In-class quiz — Tue, 29 Sep 2026 · Start of class; Project design critique" >}}
 
 **Essay 2 release:** Tue, 29 Sep 2026.
 
