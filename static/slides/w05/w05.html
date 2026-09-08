@@ -485,6 +485,23 @@ A short trace can reveal a task without revealing a permanent identity or prefer
           display:block!important;
       }</style></aside>
 </section>
+<section id="bandit-time-what-should-this-system-use" class="slide level2" data-background-color="#003D7C">
+<h2>🎰 Bandit Time: What should this system use?</h2>
+<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">An anonymous visitor opens three restaurant pages <strong>in sequence</strong> during a late-night visit. Before recommending the next page, which should be the system’s primary representation of the visitor’s immediate intent?</p><div class="cp-choice-grid"><div class="cp-choice-card cp-choice-card--a"><strong class="cp-choice-card__letter">A.</strong><span class="cp-choice-card__text">A permanent “late-night diner” profile inferred from IP location and device locale</span></div><div class="cp-choice-card cp-choice-card--b"><strong class="cp-choice-card__letter">B.</strong><span class="cp-choice-card__text">The ordered prefix of pages in the current session</span></div><div class="cp-choice-card cp-choice-card--c"><strong class="cp-choice-card__letter">C.</strong><span class="cp-choice-card__text">An unordered bag of the three pages, ranked by citywide click-through rate</span></div><div class="cp-choice-card cp-choice-card--d"><strong class="cp-choice-card__letter">D.</strong><span class="cp-choice-card__text">The highest-rated restaurant page the visitor has not opened</span></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Thirty-second countdown timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-session-mcq-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-session-mcq-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">00:30</text></svg><span id="w05-session-mcq-status" role="timer" aria-live="polite" class="cp-sr-only">00:30</span><button id="w05-session-mcq-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="30" data-ring="w05-session-mcq-ring" data-text="w05-session-mcq-text" data-status="w05-session-mcq-status">▶ Start Timer</button></div></div></div>
+<aside class="notes">
+<p>Activity mode: MCQ/response. Timebox: 30 seconds, then a 1 minute 30 second debrief. Expected answer: B. The ordered current-session prefix represents immediate evidence without converting a brief task into a permanent profile. A makes a sensitive, weakly supported inference; C loses order and substitutes aggregate popularity; D ignores the observed trace.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="sessionisation-is-a-modelling-decision" class="slide level2">
 <h2>Sessionisation is a modelling decision</h2>
 <div class="cp-grid cp-grid--3">
@@ -536,10 +553,10 @@ A short trace can reveal a task without revealing a permanent identity or prefer
 </section>
 <section id="deciding-what-starts-a-new-session" class="slide level2" data-background-color="#003D7C">
 <h2>👥 Deciding what starts a new session? 📶</h2>
-<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">Your group owns one session-boundary method. Apply it to the Ask Maps trace, then compare it with the shared 30-minute inactivity baseline.</p><div class="cp-card cp-card--warning" style="margin-top:.45em;padding:.42em .55em;"><p class="cp-card__title">Shared simplified implementation</p><p style="margin:0;"><strong>Fixed inactivity:</strong> begin a new session after 30 minutes with no event. It is clear and cheap, but one threshold cannot fit every task.</p></div><div class="cp-grid cp-grid--2" style="margin-top:.5em;gap:.55em;"><div class="cp-card cp-card--soft"><p class="cp-card__title">1. ♣ Adaptive timeout</p><p style="margin:0;">Change the gap using event pace, device, time of day, or product context.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">3. ♥ Task similarity</p><p style="margin:0;">Split when queries, items, or actions indicate a different task.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">4. ♦ Boundary classifier</p><p style="margin:0;">Learn a same-task or new-task decision from labelled traces.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">5. ♠ Intent change point</p><p style="margin:0;">Infer when the likely hidden intent state changes.</p></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-boundary-clinic-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-boundary-clinic-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-boundary-clinic-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-boundary-clinic-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-boundary-clinic-ring" data-text="w05-boundary-clinic-text" data-status="w05-boundary-clinic-status">▶ Start Timer</button></div></div></div>
+<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">Your group owns one session-boundary method. Apply it to the Ask Maps trace, then compare it with the shared 30-minute inactivity baseline.</p><div class="cp-card cp-card--warning" style="margin-top:.45em;padding:.42em .55em;"><p class="cp-card__title">Shared simplified implementation</p><p style="margin:0;"><strong>Fixed inactivity:</strong> begin a new session after 30 minutes with no event. It is clear and cheap, but one threshold cannot fit every task.</p></div><div class="cp-grid cp-grid--2" style="margin-top:.5em;gap:.55em;"><div class="cp-card cp-card--soft"><p class="cp-card__title">1. Adaptive timeout</p><p style="margin:0;">Change the gap using event pace, device, time of day, or product context.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">2. Task similarity</p><p style="margin:0;">Split when queries, items, or actions indicate a different task.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">3. Boundary classifier</p><p style="margin:0;">Learn a same-task or new-task decision from labelled traces.</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">4. Intent change point</p><p style="margin:0;">Infer when the likely hidden intent state changes.</p></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Three-minute group discussion timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-boundary-clinic-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-boundary-clinic-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">03:00</text></svg><span id="w05-boundary-clinic-status" role="timer" aria-live="polite" class="cp-sr-only">03:00</span><button id="w05-boundary-clinic-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="180" data-ring="w05-boundary-clinic-ring" data-text="w05-boundary-clinic-text" data-status="w05-boundary-clinic-status">▶ Start Timer</button></div></div></div>
 <aside class="notes">
-<p>Activity mode: small-group discussion. Total timebox: 10 minutes. Use the displayed timer for 3 minutes of group writing, then allow 2 minutes for one concise report from each suit, 2 minutes for AI Voice critique, 1 minute for student critique, and 2 minutes for instructor synthesis. Expected output: one boundary, the evidence it needs, and one failure case compared with a fixed 30-minute inactivity rule.</p>
-<p>The numbered options are: (1) adaptive timeout; (2) fixed inactivity, the shared baseline rather than a group assignment; (3) task similarity; (4) supervised boundary classifier; and (5) latent-intent change point. Treat each card suit as a contextual method label, never as a demographic category.</p>
+<p>Activity mode: small-group discussion. Total timebox: 10 minutes. Use the displayed timer for 3 minutes of group writing, then allow 2 minutes for one concise report from each group, 2 minutes for AI Voice critique, 1 minute for student critique, and 2 minutes for instructor synthesis. Expected output: one boundary, the evidence it needs, and one failure case compared with a fixed 30-minute inactivity rule.</p>
+<p>The numbered group options are: (1) adaptive timeout; (2) task similarity; (3) supervised boundary classifier; and (4) latent-intent change point. Fixed inactivity remains the shared baseline rather than a group assignment.</p>
 <p>After reports, ask AI Voice: “For each proposed session-boundary rule, what useful behaviour could it incorrectly split or incorrectly merge?” Treat the reply as an object of critique, not an answer. Instructor synthesis: fixed inactivity is a reproducible baseline; adaptive rules reflect interaction pace; task similarity recognises a change of purpose; classifiers combine signals but inherit labels and policy choices; latent-state models represent uncertainty but are harder to validate and explain.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -584,6 +601,14 @@ halal filter
 delivery time
 </td>
 </tr>
+<tr>
+<td class="cp-table__cell">
+[ramen, halal filter, delivery time]
+</td>
+<td class="cp-table__cell cp-table__cell--highlight">
+late-night restaurant
+</td>
+</tr>
 </tbody>
 </table>
 <aside class="notes">
@@ -600,36 +625,19 @@ delivery time
           display:block!important;
       }</style></aside>
 </section>
-<section id="start-with-baselines-worth-beating" class="slide level2">
-<h2>Start with baselines worth beating</h2>
-<div class="cp-grid cp-grid--3">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Session popularity
+<section id="section-3" class="slide level2" data-background-color="#003D7C">
+<h2></h2>
+<div style="height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;">
+<p style="max-width:1100px;margin:0;font-size:2.05em;line-height:1.18;font-weight:bold;color:#fff;">
+GRU4Rec
 </p>
-<p style="margin:0;">
-What is commonly consumed in a comparable context?
+<p style="max-width:920px;margin:.85em 0 0;padding-top:.5em;border-top:1px solid rgba(255,255,255,.48);color:rgba(255,255,255,.88);font-size:.42em;line-height:1.25;">
+Paper: <a href="https://arxiv.org/abs/1511.06939" target="_blank" rel="noopener" style="color:#EF7C00;text-decoration:underline;">Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). <em>Session-based Recommendations with Recurrent Neural Networks</em>. ICLR.</a>
 </p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Co-occurrence
-</p>
-<p style="margin:0;">
-What is often seen after the current item?
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Nearest session
-</p>
-<p style="margin:0;">
-Which previous sessions have a similar prefix?
-</p>
-</div>
 </div>
 <aside class="notes">
-<p>Delivery: 2.5 minutes. A neural model earns its complexity only when these transparent baselines are insufficient under the same future-facing evaluation protocol.</p>
+<p>Delivery: 30 seconds. Use this as a pivot from ordered prefix-target examples to a learned session representation. GRU4Rec does not declare who the visitor is; it updates a representation of what the current session may require.</p>
+<p>[Source] - Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). “Session-based Recommendations with Recurrent Neural Networks.” <em>International Conference on Learning Representations</em>. https://arxiv.org/abs/1511.06939</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -642,77 +650,12 @@ Which previous sessions have a similar prefix?
           display:block!important;
       }</style></aside>
 </section>
-<section id="bandit-time-what-should-this-system-use" class="slide level2" data-background-color="#003D7C">
-<h2>🎰 Bandit Time: What should this system use?</h2>
-<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">An anonymous visitor opens three late-night restaurant pages. What is the best starting representation?</p><div class="cp-choice-grid"><div class="cp-choice-card cp-choice-card--a"><strong class="cp-choice-card__letter">A.</strong><span class="cp-choice-card__text">A permanent demographic profile</span></div><div class="cp-choice-card cp-choice-card--b"><strong class="cp-choice-card__letter">B.</strong><span class="cp-choice-card__text">The ordered current-session prefix</span></div><div class="cp-choice-card cp-choice-card--c"><strong class="cp-choice-card__letter">C.</strong><span class="cp-choice-card__text">An unordered set of all site clicks</span></div><div class="cp-choice-card cp-choice-card--d"><strong class="cp-choice-card__letter">D.</strong><span class="cp-choice-card__text">A random unseen item</span></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Twenty-second countdown timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-session-mcq-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-session-mcq-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">00:20</text></svg><span id="w05-session-mcq-status" role="timer" aria-live="polite" class="cp-sr-only">00:20</span><button id="w05-session-mcq-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="20" data-ring="w05-session-mcq-ring" data-text="w05-session-mcq-text" data-status="w05-session-mcq-status">▶ Start Timer</button></div></div></div>
-<aside class="notes">
-<p>Activity mode: MCQ/response. Timebox: 20 seconds, then a 1 minute 40 second debrief. Expected answer: B. The current ordered prefix represents immediate evidence without converting a brief task into a permanent profile. A infers too much; C loses order; D ignores evidence.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="gru4rec-carry-a-changing-session-state" class="slide level2">
-<h2>GRU4Rec: carry a changing session state</h2>
-<div class="cp-flow-card cp-flow-card--sequence"><strong class="cp-flow-step">item 1</strong><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">GRU state</span><span class="cp-flow-arrow" aria-hidden="true">→</span><strong class="cp-flow-step">item 2</strong><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">updated GRU state</span><span class="cp-flow-arrow" aria-hidden="true">→</span><strong class="cp-flow-step">score next items</strong></div>
-<div class="cp-grid cp-grid--2" style="margin-top:.8em;">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Update gate
-</p>
-<p style="margin:0;">
-How much useful context should the model retain?
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Reset gate
-</p>
-<p style="margin:0;">
-Which old context should stop dominating the state?
-</p>
-</div>
-</div>
-<aside class="notes">
-<p>Delivery: 4 minutes. Do not derive GRU equations. Explain the state as a learned, changing summary of a session prefix. GRU4Rec scores candidate next items from that state.</p>
-<p>[Source] - Hidasi et al.&nbsp;(2016), “Session-based Recommendations with Recurrent Neural Networks.”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="watch-for-the-gru-intuition" class="slide level2">
-<h2>Watch for the GRU intuition</h2>
-<div class="cp-grid cp-grid--2">
-<div>
-<iframe width="100%" height="430" src="https://www.youtube-nocookie.com/embed/IBs8D8PWMc8?start=282&amp;end=402&amp;rel=0" title="Gated Recurrent Unit explanation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-</div>
-<div class="cp-card cp-card--prompt">
-<p class="cp-card__title">
-While you watch
-</p>
-<p style="margin:0;">
-Which gate would help after a user abruptly shifts from planning museums to finding food delivery?
-</p>
-<p class="cp-card__meta">
-The clip explains GRUs generally; the instructor maps the idea to GRU4Rec.
-</p>
-</div>
+<section id="video-gru-intuition" class="slide level2" data-background-color="#000000">
+<h2><span style="color:#ffffff;">🎥 Video: GRU intuition</span></h2>
+<div style="display:flex;align-items:center;justify-content:center;width:100%;height:76vh;background:#000;">
+  <a href="https://www.youtube.com/watch?v=IBs8D8PWMc8&amp;t=282s" target="_blank" rel="noopener" aria-label="Open video: Gated Recurrent Unit explanation">
+    <img src="https://img.youtube.com/vi/IBs8D8PWMc8/maxresdefault.jpg" alt="YouTube thumbnail for Gated Recurrent Unit explanation" style="display:block;width:100%;max-width:1280px;height:auto;max-height:76vh;object-fit:contain;border:4px solid #EF7C00;">
+  </a>
 </div>
 <aside class="notes">
 <p>Delivery: 2 minutes. Play 4:42–6:42 only. Stop on time. Ask for one gate-based explanation; do not treat this external video as an authority on recommender systems.</p>
@@ -729,36 +672,24 @@ The clip explains GRUs generally; the instructor maps the idea to GRU4Rec.
           display:block!important;
       }</style></aside>
 </section>
-<section id="gru4rec-implementation-and-evaluation-lens" class="slide level2">
-<h2>GRU4Rec implementation and evaluation lens</h2>
-<div class="cp-grid cp-grid--3">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Batch
-</p>
-<p style="margin:0;">
-Advance many active sessions together; reset a state when a session ends.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Score
-</p>
-<p style="margin:0;">
-Compare the state with candidate-item representations.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Evaluate
-</p>
-<p style="margin:0;">
-Use future sessions and report Hit Rate, MRR, or NDCG at K.
-</p>
-</div>
+<section id="gru4rec-carry-a-changing-session-state" class="slide level2">
+<h2>GRU4Rec: carry a changing session state</h2>
+<div class="cp-grid cp-grid--2" style="grid-template-columns:minmax(0,1.55fr) minmax(250px,.7fr);align-items:center;gap:1em;">
+  <figure style="margin:0;min-width:0;">
+    <a href="https://commons.wikimedia.org/wiki/File:Gated_Recurrent_Unit.svg" target="_blank" rel="noopener" aria-label="Open the source for the GRU diagram">
+      <img class="cp-image cp-image--contain" src="assets/gru-cell-standard.svg" alt="Gated recurrent unit cell diagram, showing current input, previous hidden state, reset gate, update gate, candidate state, and new hidden state" style="display:block;width:100%;max-height:430px;object-fit:contain;margin:0 auto;">
+    </a>
+    <figcaption style="margin-top:.32em;padding-top:.24em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;">Click diagram for source · fdeloche, <em>Gated Recurrent Unit</em>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Gated_Recurrent_Unit.svg" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">Wikimedia Commons</a>.</figcaption>
+  </figure>
+  <div class="cp-stack" style="font-size:.72em;line-height:1.18;">
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">Update gate <em>z</em><sub>t</sub></p><p style="margin:0;">Call out the final blend: how much of the previous hidden state should persist versus be replaced by the candidate state?</p></div>
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">Reset gate <em>r</em><sub>t</sub></p><p style="margin:0;">Call out the path into the candidate state: how much earlier context should shape the next proposal?</p></div>
+    <div class="cp-card cp-card--warning"><p class="cp-card__title">Read the diagram</p><p style="margin:0;">Both gates receive the current input and previous state. Their outputs shape the candidate and the final blend.</p></div>
+  </div>
 </div>
 <aside class="notes">
-<p>Delivery: 2.5 minutes. This is a blueprint, not live coding. Remind students that a held-out final event must not leak into the representation that predicts it.</p>
+<p>Delivery: 3.5 minutes. Open the linked figure only if a student wants to inspect the original. Do not derive GRU equations. First trace the reset gate into the candidate state, then the update gate at the final old-versus-new blend. Explain the state as a learned, changing summary of a session prefix. GRU4Rec scores candidate next items from that state.</p>
+<p>[Source] - Hidasi et al.&nbsp;(2016), “Session-based Recommendations with Recurrent Neural Networks.” - fdeloche (2017), “Gated Recurrent Unit,” Wikimedia Commons, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Gated_Recurrent_Unit.svg</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -771,62 +702,130 @@ Use future sessions and report Hit Rate, MRR, or NDCG at K.
           display:block!important;
       }</style></aside>
 </section>
-<section id="session-model-selection-relevance-is-not-a-profile-rewrite" class="slide level2">
-<h2>Session model selection: relevance is not a profile rewrite</h2>
-<table class="cp-table cp-table--compact">
-<thead>
-<tr>
-<th>
-Situation
-</th>
-<th>
-Useful starting point
-</th>
-<th>
-Guardrail
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="cp-table__cell">
-Anonymous, short session
-</td>
-<td class="cp-table__cell">
-Co-occurrence or GRU4Rec
-</td>
-<td class="cp-table__cell cp-table__cell--highlight">
-Do not overclaim durable preference
-</td>
-</tr>
-<tr>
-<td class="cp-table__cell">
-Sharp task shift
-</td>
-<td class="cp-table__cell">
-Session-aware hybrid
-</td>
-<td class="cp-table__cell cp-table__cell--highlight">
-Keep stated constraints visible
-</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-warning callout-titled callout-style-default">
+<section id="gru4rec-architecture-one-event-in-scores-out" class="slide level2">
+<h2>GRU4Rec architecture: one event in, scores out</h2>
+<figure style="margin:0;text-align:center;">
+  <a href="https://arxiv.org/abs/1511.06939" target="_blank" rel="noopener" aria-label="Open the GRU4Rec paper that contains the network architecture figure">
+    <img class="cp-image cp-image--contain" src="assets/gru4rec-architecture-figure-1.png" alt="GRU4Rec network architecture for one event: a one-of-N encoded current item passes through an optional embedding layer, one or more GRU layers, optional feedforward layers, and produces scores for candidate items." style="display:block;width:100%;max-height:620px;object-fit:contain;margin:0 auto;">
+  </a>
+  <figcaption style="margin:.35em 0 0;padding-top:.25em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;text-align:left;">Source: Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). <em>Session-based Recommendations with Recurrent Neural Networks</em> (Fig. 1, p. 4). ICLR. <a href="https://arxiv.org/abs/1511.06939" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">https://arxiv.org/abs/1511.06939</a></figcaption>
+</figure>
+<aside class="notes">
+<p>Delivery: 1 minute. Read the architecture left to right: the current item is encoded, passes through one or more GRU layers that retain the session state, may pass through feedforward layers, and produces a score for each candidate next item. The dotted paths show optional connections to deeper GRU layers. This is the paper’s model diagram; the next slide contrasts its ranking losses.</p>
+<p>[Source] - Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). “Session-based Recommendations with Recurrent Neural Networks.” <em>International Conference on Learning Representations</em>, Fig. 1, p.&nbsp;4. https://arxiv.org/abs/1511.06939. The original figure was cropped from the paper for legibility; no semantic content was changed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="gru4rec-implementation-and-evaluation-lens" class="slide level2">
+<h2>GRU4Rec implementation and evaluation lens</h2>
+<div class="cp-grid cp-grid--2" style="grid-template-columns:minmax(0,1.45fr) minmax(255px,.72fr);align-items:center;gap:.9em;">
+  <figure style="margin:0;">
+    <a href="https://arxiv.org/abs/1511.06939" target="_blank" rel="noopener" aria-label="Open the GRU4Rec paper that contains the session-parallel mini-batch figure">
+      <img class="cp-image cp-image--contain" src="assets/gru4rec-session-parallel-mini-batches-figure-2.png" alt="GRU4Rec session-parallel mini-batch creation. Several sessions progress one event at a time in parallel; each mini-batch contains the next event from each active session, and an ended session is replaced by a new one." style="display:block;width:100%;max-height:485px;object-fit:contain;margin:0 auto;">
+    </a>
+  </figure>
+  <div class="cp-stack" style="font-size:.62em;line-height:1.15;">
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">Batch</p><p style="margin:0;">One next-item step per active row.</p></div>
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">Reset on replacement</p><p style="margin:0;">End → next session; state = zero.</p></div>
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">Evaluate forward in time</p><p style="margin:0;">Later sessions: HR, MRR, NDCG@K.</p></div>
+  </div>
+</div>
+<p style="margin:.35em 0 0;padding-top:.25em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;">Source: Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). <em>Session-based Recommendations with Recurrent Neural Networks</em> (Fig. 2, p. 4). ICLR. <a href="https://arxiv.org/abs/1511.06939" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">https://arxiv.org/abs/1511.06939</a></p>
+<aside class="notes">
+<p>Delivery: 2 minutes. Read the figure from left to right: columns select the next event from each active session, and each output is the following event in that same session. The green outlines show the three successive mini-batches. When a session ends, GRU4Rec replaces it with the next available session and resets only that row’s hidden state. This is a blueprint, not live coding. Remind students that a held-out final event must not leak into the representation that predicts it.</p>
+<p>[Source] - Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). “Session-based Recommendations with Recurrent Neural Networks.” <em>International Conference on Learning Representations</em>, Fig. 2, p.&nbsp;4. https://arxiv.org/abs/1511.06939. The original figure was cropped from the paper for legibility; no semantic content was changed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="gru4rec-evaluation-bpr-and-top1" class="slide level2">
+<h2>GRU4Rec evaluation: BPR and TOP1</h2>
+<p>The comparison evaluated two ranking objectives: BPR and TOP1. For the observed next item <span class="cp-text--orange"><strong><em>i</em></strong></span> and a sampled negative <span class="cp-text--teal"><strong><em>j</em></strong></span>, both losses want <em>r</em><sub>i</sub> &gt; <em>r</em><sub>j</sub>.</p>
+<div class="cp-grid cp-grid--2">
+<div class="cp-card cp-card--soft">
+<p class="cp-card__title">
+BPR · push the observed item above a negative
+</p>
+<p><span class="math display">\[
+L_{\mathrm{BPR}}=-\log\sigma\left(\color{orange}{r_i}-\color{teal}{r_j}\right)
+\]</span></p>
+<p style="margin:0;">
+Only the <strong>relative score gap</strong> matters.
+</p>
+</div>
+<div class="cp-card cp-card--prompt">
+<p class="cp-card__title">
+TOP1 · approximate rank, then stabilise scores
+</p>
+<p><span class="math display">\[
+L_{\mathrm{TOP1}}=\sigma\left(\color{teal}{r_j}-\color{orange}{r_i}\right)+\color{navy}{\sigma\left((\color{teal}{r_j})^2\right)}
+\]</span></p>
+<p style="margin:0;">
+The first term penalises a negative that outranks the <span class="cp-text--orange"><strong>observed item</strong></span>; the <span class="cp-text--navy">second term</span> keeps negative scores near zero.
+</p>
+</div>
+</div>
+<p style="margin:.7em 0 0;text-align:center;font-size:.7em;">
+<span class="cp-text--orange"><strong>Orange:</strong> observed next item</span> &nbsp;·&nbsp; <span class="cp-text--teal"><strong>Teal:</strong> sampled negative</span> &nbsp;·&nbsp; <span class="cp-text--navy"><strong>Navy:</strong> TOP1 regulariser</span>
+</p>
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Warning</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Optimising the next click can reward urgency, repetition, or curiosity without showing that the task was genuinely helped.</p>
+<p><strong>Batch caveat:</strong> the same item can be a target in one session-parallel row and a negative in another. TOP1’s navy term keeps negative scores near zero; basic BPR has no such stabiliser.</p>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>Delivery: 3 minutes. A session-based model uses only current-session events. A session-aware hybrid combines that local evidence with persistent user or contextual history, while keeping the two roles distinct. Close the first half by separating predictive fit from an acceptable treatment of the user.</p>
+<p>Delivery: 1.5 minutes. State the scope first: the GRU4Rec comparison evaluated BPR and TOP1 as its two ranking objectives. Let (r_i) be the score for the actual next item and (r_j) a sampled negative. Both losses prefer the actual item to rank above the negative. BPR focuses only on that pairwise ordering. TOP1 adds a regulariser that pulls negative scores toward zero, helping avoid score magnitudes escalating when an item is positive in one session-parallel row and negative in another. Do not call TOP1 an exact top-1 metric; it approximates rank against sampled negatives.</p>
+<p>[Source] - Hidasi, B., Karatzoglou, A., Baltrunas, L., &amp; Tikk, D. (2016). “Session-based Recommendations with Recurrent Neural Networks.” <em>International Conference on Learning Representations</em>, Sec. 3.1.3, pp.&nbsp;4–5. https://arxiv.org/abs/1511.06939</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="key-point-gru4rec-turns-a-session-into-a-next-item-ranking" class="slide level2" data-background-color="#003D7C">
+<h2>🔑 Key Point: GRU4Rec turns a session into a next-item ranking</h2>
+<div style="min-height:62vh;display:flex;flex-direction:column;justify-content:center;color:#fff;">
+  <p style="margin:0 0 .8em;font-size:1.2em;line-height:1.22;"><u>Use the <span style="color:#EF7C00;">current session</span> to update a state, then rank what could plausibly come next.</u></p>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1em;">
+    <div style="padding:.72em .82em;border-top:6px solid #EF7C00;background:rgba(255,255,255,.08);"><p style="margin:0 0 .32em;color:#EF7C00;font-weight:bold;">1 · Observe order</p><p style="margin:0;color:#fff;">Read the sequence of actions within one session.</p></div>
+    <div style="padding:.72em .82em;border-top:6px solid #80cbc4;background:rgba(255,255,255,.08);"><p style="margin:0 0 .32em;color:#80cbc4;font-weight:bold;">2 · Update state</p><p style="margin:0;color:#fff;">A GRU decides what earlier context to carry forward.</p></div>
+    <div style="padding:.72em .82em;border-top:6px solid #EF7C00;background:rgba(255,255,255,.08);"><p style="margin:0 0 .32em;color:#EF7C00;font-weight:bold;">3 · Rank next items</p><p style="margin:0;color:#fff;">Score candidate actions for the next step—not a permanent profile.</p></div>
+  </div>
+  <p style="margin:1em 0 0;color:#EF7C00;font-size:1.02em;font-weight:bold;">🤞 Predict a next action with humility: a session state is useful, but it is not a person.</p>
+</div>
+<aside class="notes">
+<p>Delivery: 1 minute. Synthesize the mechanism in the three steps: ordered session events update a GRU state, which ranks the next items. Return to the key guardrail: useful short-term prediction is not evidence of a durable identity or preference.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -888,26 +887,16 @@ Keep stated constraints visible
 </section>
 <section id="from-the-current-session-to-a-user-sequence" class="slide level2">
 <h2>From the current session to a user sequence</h2>
-<div class="cp-grid cp-grid--2">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Session state
-</p>
-<p style="margin:0;">
-What seems useful for the task happening now?
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Sequential user state
-</p>
-<p style="margin:0;">
-Which earlier actions still matter after preferences evolve?
-</p>
-</div>
-</div>
+<figure style="margin:0;">
+  <a href="https://doi.org/10.1007/978-3-031-42559-2" target="_blank" rel="noopener" aria-label="Open the source for the sequence-aware interaction-history figure">
+    <img class="cp-image cp-image--contain" src="assets/sequence-aware-history-figure-1-3-crop.png" alt="Sequence-aware recommendation uses a long-term ordered user interaction history together with current interactions to make a recommendation. A time arrow runs from the earlier history to the current interactions." style="display:block;width:88%;max-height:355px;object-fit:contain;margin:0 auto;">
+  </a>
+  <figcaption style="margin:.28em 0 0;padding-top:.22em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;">Source: Ravanmehr, R., &amp; Mohamadrezaei, R. (2024). <em>Session-based recommender systems using deep learning</em> (Fig. 1.3, p. 15). Springer. <a href="https://doi.org/10.1007/978-3-031-42559-2" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">https://doi.org/10.1007/978-3-031-42559-2</a></figcaption>
+</figure>
+<div class="cp-grid cp-grid--2" style="margin-top:.52em;"><div class="cp-card cp-card--soft"><p class="cp-card__title">Session state</p><p style="margin:0;">What seems useful for the task happening now?</p></div><div class="cp-card cp-card--soft"><p class="cp-card__title">Sequential user state</p><p style="margin:0;">Which earlier actions still matter after preferences evolve?</p></div></div>
 <aside class="notes">
-<p>Delivery: 3 minutes. A long history can contain routine preferences, drift, and exceptions. Sequence models should not give every earlier action equal weight.</p>
+<p>Delivery: 3 minutes. Reuse the bottom lane from Slide 9’s interaction-history figure: sequence-aware recommendation extends the evidence from current interactions backward through a long-term ordered history. A long history can contain routine preferences, drift, and exceptions. Sequence models should not give every earlier action equal weight.</p>
+<p>[Source] - Ravanmehr, R., &amp; Mohamadrezaei, R. (2024). <em>Session-Based Recommender Systems Using Deep Learning</em>, Fig. 1.3, p.&nbsp;15. The sequence-aware lane was cropped from the source figure already introduced on Slide 9; no semantic content was changed.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -920,65 +909,11 @@ Which earlier actions still matter after preferences evolve?
           display:block!important;
       }</style></aside>
 </section>
-<section id="preserve-chronology-in-the-learning-pipeline" class="slide level2">
-<h2>Preserve chronology in the learning pipeline</h2>
-<div class="cp-flow-card cp-flow-card--sequence"><span class="cp-flow-step">earlier history</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">train sequence model</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">later held-out interaction</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">rank candidates</span></div>
-<p style="margin-top:.8em;">
-A random split lets the model learn from actions that had not happened at recommendation time.
-</p>
+<section id="bandit-time-compare-gru4rec-and-a-new-sequence-model" class="slide level2" data-background-color="#003D7C">
+<h2>🎰 Bandit Time: Compare GRU4Rec and a new sequence model</h2>
+<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">A new causal self-attention model is proposed as an alternative to GRU4Rec for next-item ranking. Which comparison makes a fair deployment claim?</p><div class="cp-choice-grid"><div class="cp-choice-card cp-choice-card--a"><strong class="cp-choice-card__letter">A.</strong><span class="cp-choice-card__text">Use the same time cutoff, but report each model’s strongest metric from its original paper.</span></div><div class="cp-choice-card cp-choice-card--b"><strong class="cp-choice-card__letter">B.</strong><span class="cp-choice-card__text">Let self-attention read the full test sequence, while GRU4Rec receives only the prefix.</span></div><div class="cp-choice-card cp-choice-card--c"><strong class="cp-choice-card__letter">C.</strong><span class="cp-choice-card__text">Give GRU4Rec an anonymous session but give the new model each user’s complete earlier history.</span></div><div class="cp-choice-card cp-choice-card--d"><strong class="cp-choice-card__letter">D.</strong><span class="cp-choice-card__text">Use one chronological cutoff; give both models only each target’s preceding prefix, then use the same candidates and ranking metric.</span></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Forty-five-second countdown timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-seq-mcq-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-seq-mcq-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">00:45</text></svg><span id="w05-seq-mcq-status" role="timer" aria-live="polite" class="cp-sr-only">00:45</span><button id="w05-seq-mcq-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="45" data-ring="w05-seq-mcq-ring" data-text="w05-seq-mcq-text" data-status="w05-seq-mcq-status">▶ Start Timer</button></div></div></div>
 <aside class="notes">
-<p>Delivery: 3 minutes. The implementation contract remains the same: form ordered prefixes, reserve later events for testing, and ensure features such as popularity are computed only from training-time evidence.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="static-history-and-markov-baselines" class="slide level2">
-<h2>Static history and Markov baselines</h2>
-<div class="cp-grid cp-grid--2">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Static representation
-</p>
-<p style="margin:0;">
-Treat past actions as an unordered set or aggregate.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-First-order Markov model
-</p>
-<p style="margin:0;">
-Use the latest item to estimate the next transition.
-</p>
-</div>
-</div>
-<aside class="notes">
-<p>Delivery: 2.5 minutes. Markov models preserve local order but can miss an older action that becomes relevant again. This motivates recurrent and attention-based representations.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="bandit-time-which-evaluation-is-future-facing" class="slide level2" data-background-color="#003D7C">
-<h2>🎰 Bandit Time: Which evaluation is future-facing?</h2>
-<div class="cp-activity cp-activity--navy cp-activity--framed cp-grid cp-grid--2-aside"><div><p class="cp-activity__prompt">Which design best supports a claim about next-item performance after deployment?</p><div class="cp-choice-grid"><div class="cp-choice-card cp-choice-card--a"><strong class="cp-choice-card__letter">A.</strong><span class="cp-choice-card__text">Randomly split all events from every date</span></div><div class="cp-choice-card cp-choice-card--b"><strong class="cp-choice-card__letter">B.</strong><span class="cp-choice-card__text">Train on earlier events and test on later events</span></div><div class="cp-choice-card cp-choice-card--c"><strong class="cp-choice-card__letter">C.</strong><span class="cp-choice-card__text">Train and test on each user's complete history</span></div><div class="cp-choice-card cp-choice-card--d"><strong class="cp-choice-card__letter">D.</strong><span class="cp-choice-card__text">Hide a random item but retain future popularity features</span></div></div></div><div class="cp-activity__timer cp-center"><div class="cp-timer"><svg width="140" height="140" viewbox="0 0 180 180" aria-label="Twenty-second countdown timer"><circle cx="90" cy="90" r="75" fill="none" stroke="#ddd" stroke-width="14"></circle><circle id="w05-seq-mcq-ring" class="cp-timer__ring" cx="90" cy="90" r="75" fill="none" stroke="#EF7C00" stroke-width="14" stroke-dasharray="471.24" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 90 90)"></circle><text id="w05-seq-mcq-text" class="cp-timer__text" x="90" y="98" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#00796B">00:20</text></svg><span id="w05-seq-mcq-status" role="timer" aria-live="polite" class="cp-sr-only">00:20</span><button id="w05-seq-mcq-btn" type="button" class="cp-timer__button" data-cp-timer="" data-seconds="20" data-ring="w05-seq-mcq-ring" data-text="w05-seq-mcq-text" data-status="w05-seq-mcq-status">▶ Start Timer</button></div></div></div>
-<aside class="notes">
-<p>Activity mode: MCQ/response. Timebox: 20 seconds, then a 1 minute 40 second debrief. Expected answer: B. It mirrors the direction of a production prediction. A and D can leak future evidence; C is not an out-of-sample test.</p>
+<p>Activity mode: MCQ/response. Timebox: 45 seconds, then a 1 minute 15 second debrief. Expected answer: D. It carries forward the Week 03 evaluation contract: a chronological split, target-time inputs only, and a shared measurement protocol. A makes the reported scores incomparable; B violates the causal next-item task; C confounds architecture with the available history. Bridge to the next slide: the self-attention model has not yet earned access to more evidence than GRU4Rec - it offers a different way to represent the same permitted prefix.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -993,26 +928,21 @@ Use the latest item to estimate the next transition.
 </section>
 <section id="why-self-attention" class="slide level2">
 <h2>Why self-attention?</h2>
-<div class="cp-grid cp-grid--2">
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Recurrent encoding
-</p>
-<p style="margin:0;">
-Compress the prefix into a changing hidden state.
-</p>
-</div>
-<div class="cp-card cp-card--soft">
-<p class="cp-card__title">
-Self-attention
-</p>
-<p style="margin:0;">
-Let the current prediction selectively use different earlier actions.
-</p>
-</div>
+<div class="cp-grid cp-grid--2" style="grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);align-items:start;">
+  <div class="cp-stack">
+    <div class="cp-card cp-card--soft"><p class="cp-card__title">GRU4Rec — previous focus</p><p style="margin:0;">A recurrent encoder compresses the prefix into a changing hidden state.</p></div>
+    <div class="cp-card cp-card--prompt"><p class="cp-card__title">SASRec — current focus</p><p style="margin:0;">Self-attention lets each prediction selectively use different earlier actions.</p></div>
+  </div>
+  <figure style="margin:0;text-align:center;">
+    <a href="https://arxiv.org/abs/1808.09781" target="_blank" rel="noopener" aria-label="Open the SASRec paper that contains the training-process figure">
+      <img class="cp-image cp-image--contain" src="assets/sasrec-training-process-figure-1.png" alt="SASRec training process: item embeddings with positional information pass through stacked self-attention and point-wise feed-forward blocks. At each position, self-attention can connect to all earlier items before predicting the next item." style="display:block;width:100%;max-height:510px;object-fit:contain;margin:0 auto;">
+    </a>
+    <figcaption style="margin:.3em 0 0;padding-top:.22em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;text-align:left;">Source: Kang, W.-C., &amp; McAuley, J. (2018). <em>Self-Attentive Sequential Recommendation</em> (Fig. 1, p. 1). IEEE ICDM. <a href="https://arxiv.org/abs/1808.09781" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">https://arxiv.org/abs/1808.09781</a></figcaption>
+  </figure>
 </div>
 <aside class="notes">
-<p>Delivery: 2.5 minutes. Reconnect to the bridge: attention over actions is useful when the latest click is not the only useful context.</p>
+<p>Delivery: 2.5 minutes. The left card names the model students have just studied: GRU4Rec. It folds the permitted prefix into a recurrent hidden state. Keep the class’s attention on the highlighted right card: SASRec is still causal next-item prediction, but its current position can selectively connect to earlier actions rather than relying only on a single recurrent summary. Use Figure 1 to point from the training action sequence through embeddings, the self-attention block, and the predicted next item. The diagram’s arrows are the key contrast: a position can attend to all earlier positions, never future ones.</p>
+<p>[Source] - Kang, W.-C., &amp; McAuley, J. (2018). “Self-Attentive Sequential Recommendation.” <em>2018 IEEE International Conference on Data Mining</em>, Fig. 1, p.&nbsp;1. https://arxiv.org/abs/1808.09781. The figure was cropped from the paper for legibility; no semantic content was changed.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1049,6 +979,74 @@ The same items in a different order can imply a different next item.
 <aside class="notes">
 <p>Delivery: 4.5 minutes. Work one trace on the chalkboard: museum → vegetarian café → “late-night halal” → delivery time. For shifted targets, the input through item <em>i</em><sub>t</sub> scores <em>i</em><sub>t+1</sub>. Ask which actions should receive attention for predicting the next item, and why the causal mask protects the training task.</p>
 <p>[Source] - Kang and McAuley (2018), “Self-Attentive Sequential Recommendation.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sasrec-walkthrough-one-next-item-recommendation-at-a-time" class="slide level2">
+<h2>SASRec walkthrough: one next-item recommendation at a time</h2>
+<div style="display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:1.05em;align-items:stretch;font-size:.66em;line-height:1.18;">
+  <div style="padding:.6em .72em;border:1px solid #9EBFDB;background:#EAF4FB;">
+    <p style="margin:0 0 .42em;color:#003D7C;font-weight:700;">Causal self-attention over the available session prefix</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.48em;align-items:end;">
+      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>museum<br>ticket</strong><br><span class="cp-text--muted" style="font-size:.76em;">earlier</span></div>
+      <div class="cp-card cp-card--soft" style="padding:.38em;text-align:center;"><strong>vegetarian<br>café</strong><br><span class="cp-text--muted" style="font-size:.76em;">earlier</span></div>
+      <div class="cp-card cp-card--prompt" style="padding:.38em;text-align:center;"><strong>late-night<br>halal food</strong><br><span style="font-size:.76em;">current query</span></div>
+    </div>
+    <div class="fragment" data-fragment-index="1" style="margin-top:.58em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 1 · attention scores</strong><br><span class="cp-chip cp-chip--muted">0.08</span> <span class="cp-chip cp-chip--muted">0.22</span> <span class="cp-chip cp-chip--navy">0.70</span></div>
+    <div class="fragment" data-fragment-index="2" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #00796B;background:#fff;text-align:center;"><strong class="cp-text--teal">Step 2 · causal softmax weights</strong><br><span class="cp-chip cp-chip--muted">8%</span> <span class="cp-chip cp-chip--muted">22%</span> <span class="cp-chip cp-chip--navy">70%</span></div>
+    <div class="fragment" data-fragment-index="3" style="margin-top:.42em;padding:.42em .55em;border-top:2px solid #EF7C00;background:#fff;text-align:center;"><strong class="cp-text--orange">Step 3 · contextual state</strong><br>The model gives the late-night halal action the largest weight, while retaining the earlier context.</div>
+  </div>
+  <div style="padding:.6em .72em;border:1px solid #B9D6B3;background:#EEF8EA;">
+    <p style="margin:0 0 .42em;color:#003D7C;font-weight:700;">Ranked next-item recommendations</p>
+    <div class="cp-card cp-card--soft" style="padding:.42em;"><strong>Session prefix</strong><br><span class="cp-text--muted" style="font-size:.86em;line-height:1.16;">museum ticket<br>→ vegetarian café<br>→ late-night halal food</span></div>
+    <div class="fragment" data-fragment-index="4" style="margin-top:.48em;"><div class="cp-card cp-card--prompt" style="padding:.42em;"><strong>1. delivery-time check</strong><br><span class="cp-text--muted">highest-ranked next item</span></div></div>
+    <div class="fragment" data-fragment-index="5" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>2. halal restaurant details</strong><br><span class="cp-text--muted">re-rank after the new observed action</span></div></div>
+    <div class="fragment" data-fragment-index="6" style="margin-top:.48em;"><div class="cp-card cp-card--soft" style="padding:.42em;"><strong>3. order tracking</strong><br><span class="cp-text--muted">re-rank again with the longer prefix</span></div></div>
+    <div class="fragment" data-fragment-index="7" style="margin-top:.48em;color:#5F6B7A;text-align:center;"><strong>Only past actions are visible.</strong></div>
+  </div>
+</div>
+<aside class="notes">
+<p>Delivery: 4 minutes. Use this as a progressive build, following the user-provided CS4248 attention walkthrough pattern. Start with the three observed items. Reveal scores, then softmax weights, then the contextual state. Emphasize that the numbers are illustrative rather than learned values from a fitted model. Reveal each ranked next item as a new opportunity to re-run the causal sequence model on an extended prefix. Ask: “Which earlier action can this prediction inspect?” Answer: any earlier action in the displayed prefix, but never an action that occurs later.</p>
+<p>[Source] - Pedagogical build pattern adapted from the user-provided <em>CS4248 Lecture 08</em>, Slides 1–8. Recommendation example and all item labels are new for CP4285. - Kang and McAuley (2018), “Self-Attentive Sequential Recommendation.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="preserve-chronology-in-the-learning-pipeline" class="slide level2">
+<h2>Preserve chronology in the learning pipeline</h2>
+<div class="cp-flow-card cp-flow-card--sequence"><span class="cp-flow-step">earlier history</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">train sequence model</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">later held-out interaction</span><span class="cp-flow-arrow" aria-hidden="true">→</span><span class="cp-flow-step">rank candidates</span></div>
+<div class="cp-grid cp-grid--2" style="grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:center;margin-top:.62em;">
+  <div class="cp-stack" style="font-size:.74em;line-height:1.22;">
+    <div class="cp-card cp-card--warning"><p class="cp-card__title">A random split leaks the future</p><p style="margin:0;">It lets the model learn from actions that had not happened at recommendation time.</p></div>
+    <div class="cp-card cp-card--prompt"><p class="cp-card__title">Causal masking applies the same rule within a sequence</p><p style="margin:0;">Before softmax, set scores for future positions to <strong>−∞</strong>. Each prediction can use its prefix, never a later action.</p></div>
+  </div>
+  <figure style="margin:0;text-align:center;">
+    <a href="https://jalammar.github.io/illustrated-gpt2/" target="_blank" rel="noopener" aria-label="Open Jay Alammar's explanation of the causal attention mask">
+      <img class="cp-image cp-image--contain" src="assets/causal-attention-mask-jay-alammar.png" alt="Attention score matrix before and after applying a causal mask. The upper-right future-position scores are replaced with negative infinity before softmax." style="display:block;width:94%;max-height:330px;object-fit:contain;margin:0 auto;">
+    </a>
+    <figcaption style="margin:.28em 0 0;padding-top:.22em;border-top:1px solid #c8d5df;color:#5F6B7A;font-size:.34em;line-height:1.15;text-align:left;">Source: Jay Alammar, <em>The Illustrated GPT-2</em> (causal attention-mask diagram). <a href="https://jalammar.github.io/illustrated-gpt2/" target="_blank" rel="noopener" style="color:#003D7C;text-decoration:underline;">jalammar.github.io/illustrated-gpt2</a></figcaption>
+  </figure>
+</div>
+<aside class="notes">
+<p>Delivery: 3 minutes. The implementation contract remains the same: form ordered prefixes, reserve later events for testing, and ensure features such as popularity are computed only from training-time evidence. Connect the two safeguards precisely: a chronological split prevents future interactions from entering the training evidence; a causal mask prevents future positions from entering the representation for an earlier target. In the right-hand matrix, the upper-right triangle is set to negative infinity before softmax, so its weight becomes zero.</p>
+<p>[Source] - Alammar, J. (2019). “The Illustrated GPT-2.” Causal attention-mask diagram. https://jalammar.github.io/illustrated-gpt2/. Used with on-slide attribution; downloaded locally for reliable delivery.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1273,7 +1271,7 @@ A next click is not the whole definition of help.
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-3" class="slide level2" data-background-color="#ffffff">
+<section id="section-4" class="slide level2" data-background-color="#ffffff">
 <h2></h2>
 <div class="cp-frame-bg cp-frame-navy"></div><div class="cp-frame-content"><div class="cp-frame-label" style="background:#003D7C;color:#EF7C00;">Next Week Pre-Lecture Exercise</div><div class="cp-frame-title cp-text--navy">When should the current session outweigh history?</div><div class="cp-frame-body" style="color:#333;"><div class="cp-card cp-card--prompt"><p style="margin:0;">A user’s long-term history is vegetarian cafés. In their current session, they search “late-night halal food”, open nearby restaurant pages, and check delivery times. What should the app consider now—and what should it not assume?</p></div><p style="margin:.6em 0 0;"><strong>Canvas:</strong> 120–140 words by Mon, 14 Sep 2026, 23:59 SGT. Name two session-relevant item types, one risk of overwriting durable preference, and one non-click helpfulness signal.</p><p style="margin:.5em 0 0;color:#003D7C;"><strong>Next week:</strong> retrieve plausible options before ranking and re-ranking them.</p></div></div>
 <aside class="notes">
@@ -1290,7 +1288,7 @@ A next click is not the whole definition of help.
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-4" class="slide level2" data-background-color="#002a26">
+<section id="section-5" class="slide level2" data-background-color="#002a26">
 <h2></h2>
 <div class="cp-frame-bg cp-frame-teal"></div>
 <div class="cp-frame-content" style="color:white;background:#002a26;inset:60px;padding:26px 32px 22px;font-size:.92em;">
